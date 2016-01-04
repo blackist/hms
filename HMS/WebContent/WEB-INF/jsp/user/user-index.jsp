@@ -18,6 +18,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </head>
 <body>
-JSP
+USER-INDEX
 </body>
 </html>
