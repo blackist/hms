@@ -8,6 +8,9 @@
 */ 
 package com.xzit.hms.action;
 
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
 /**
 * @ClassName: BaseAction <br>
 * @Description: TODO <br>
@@ -15,6 +18,7 @@ package com.xzit.hms.action;
 * @date 2016年1月4日 下午7:17:03 <br>
 * @version V1.0  <br>
 */
-public abstract class BaseAction {
+public abstract class BaseAction extends ActionSupport implements ModelDriven {
 
+	
 }
