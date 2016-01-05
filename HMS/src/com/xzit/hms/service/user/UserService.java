@@ -19,5 +19,5 @@ import com.xzit.hms.service.BaseService;
 * @version V1.0  <br>
 */
 public interface UserService extends BaseService<User> {
-
+	
 }
