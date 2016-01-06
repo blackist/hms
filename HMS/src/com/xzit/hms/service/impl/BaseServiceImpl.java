@@ -24,7 +24,6 @@ import com.xzit.hms.service.BaseService;
  */
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
-	@Resource
 	private BaseDao<T> baseDao;
 
 	public void saveEntity(T t) {

@@ -1,25 +1,24 @@
 /*
-SQLyog Ultimate v12.08 (64 bit)
-MySQL - 5.1.73-community : Database - hms
-*********************************************************************
-*/
+Navicat MySQL Data Transfer
 
-/*!40101 SET NAMES utf8 */;
+Source Server         : MySQL
+Source Server Version : 50173
+Source Host           : 127.0.0.1:3306
+Source Database       : hms
 
-/*!40101 SET SQL_MODE=''*/;
+Target Server Type    : MYSQL
+Target Server Version : 50173
+File Encoding         : 65001
 
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`hms` /*!40100 DEFAULT CHARACTER SET utf8 */;
+Date: 2016-01-05 14:44:26
+*/
 
-USE `hms`;
+SET FOREIGN_KEY_CHECKS=0;
 
-/*Table structure for table `bed` */
-
+-- ----------------------------
+-- Table structure for bed
+-- ----------------------------
 DROP TABLE IF EXISTS `bed`;
-
 CREATE TABLE `bed` (
   `b_no` int(20) NOT NULL COMMENT '床号',
   `b_sta` varchar(30) CHARACTER SET utf8 DEFAULT NULL COMMENT '病床状态',
@@ -27,10 +26,10 @@ CREATE TABLE `bed` (
   PRIMARY KEY (`b_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Table structure for table `diagnostic_info` */
-
+-- ----------------------------
+-- Table structure for diagnostic_info
+-- ----------------------------
 DROP TABLE IF EXISTS `diagnostic_info`;
-
 CREATE TABLE `diagnostic_info` (
   `r_id` int(11) NOT NULL COMMENT '挂号单号',
   `d_date` date DEFAULT NULL COMMENT '诊断日期',
@@ -42,10 +41,10 @@ CREATE TABLE `diagnostic_info` (
   PRIMARY KEY (`r_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `dictionary` */
-
+-- ----------------------------
+-- Table structure for dictionary
+-- ----------------------------
 DROP TABLE IF EXISTS `dictionary`;
-
 CREATE TABLE `dictionary` (
   `dict_value` varchar(20) NOT NULL COMMENT '字典值，固定，不可变',
   `dict_name` varchar(50) NOT NULL COMMENT '字典名',
@@ -53,10 +52,10 @@ CREATE TABLE `dictionary` (
   PRIMARY KEY (`dict_value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `dictionary_data` */
-
+-- ----------------------------
+-- Table structure for dictionary_data
+-- ----------------------------
 DROP TABLE IF EXISTS `dictionary_data`;
-
 CREATE TABLE `dictionary_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键自增',
   `dict_value` varchar(20) NOT NULL,
@@ -65,15 +64,13 @@ CREATE TABLE `dictionary_data` (
   `is_fixed` char(1) NOT NULL COMMENT ' 0不固定，1固定；固定就不能再去修改了',
   `is_cancel` char(1) DEFAULT NULL,
   `parent_id` char(1) DEFAULT NULL COMMENT '父节点，作为简单的树形结构',
-  PRIMARY KEY (`id`),
-  KEY `FK_DICTIONARYDATA_DICTVALUE` (`dict_value`),
-  CONSTRAINT `FK_DICTIONARYDATA_DICTVALUE` FOREIGN KEY (`dict_value`) REFERENCES `dictionary` (`dict_value`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
-/*Table structure for table `doctor_info` */
-
+-- ----------------------------
+-- Table structure for doctor_info
+-- ----------------------------
 DROP TABLE IF EXISTS `doctor_info`;
-
 CREATE TABLE `doctor_info` (
   `d_no` int(11) NOT NULL AUTO_INCREMENT COMMENT '医生编号',
   `d_name` varchar(255) DEFAULT NULL COMMENT '医生姓名',
@@ -83,10 +80,10 @@ CREATE TABLE `doctor_info` (
   PRIMARY KEY (`d_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `inhospital_cost` */
-
+-- ----------------------------
+-- Table structure for inhospital_cost
+-- ----------------------------
 DROP TABLE IF EXISTS `inhospital_cost`;
-
 CREATE TABLE `inhospital_cost` (
   `i_no` int(11) NOT NULL AUTO_INCREMENT,
   `p_no` int(11) DEFAULT NULL,
@@ -96,10 +93,10 @@ CREATE TABLE `inhospital_cost` (
   PRIMARY KEY (`i_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `inpatient` */
-
+-- ----------------------------
+-- Table structure for inpatient
+-- ----------------------------
 DROP TABLE IF EXISTS `inpatient`;
-
 CREATE TABLE `inpatient` (
   `p_no` int(11) NOT NULL,
   `hr_no` int(11) DEFAULT NULL,
@@ -113,10 +110,10 @@ CREATE TABLE `inpatient` (
   PRIMARY KEY (`p_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Table structure for table `medi_info` */
-
+-- ----------------------------
+-- Table structure for medi_info
+-- ----------------------------
 DROP TABLE IF EXISTS `medi_info`;
-
 CREATE TABLE `medi_info` (
   `m_no` int(10) NOT NULL COMMENT '药品编号',
   `m_name` varchar(30) DEFAULT NULL COMMENT '药品名称',
@@ -130,10 +127,10 @@ CREATE TABLE `medi_info` (
   PRIMARY KEY (`m_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `medi_list` */
-
+-- ----------------------------
+-- Table structure for medi_list
+-- ----------------------------
 DROP TABLE IF EXISTS `medi_list`;
-
 CREATE TABLE `medi_list` (
   `m_no` int(10) NOT NULL AUTO_INCREMENT COMMENT '发药单号',
   `d_name` varchar(20) DEFAULT NULL COMMENT '医生',
@@ -146,10 +143,10 @@ CREATE TABLE `medi_list` (
   PRIMARY KEY (`m_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `operation` */
-
+-- ----------------------------
+-- Table structure for operation
+-- ----------------------------
 DROP TABLE IF EXISTS `operation`;
-
 CREATE TABLE `operation` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
   `p_no` int(11) DEFAULT NULL COMMENT '病人号',
@@ -161,10 +158,10 @@ CREATE TABLE `operation` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `patient` */
-
+-- ----------------------------
+-- Table structure for patient
+-- ----------------------------
 DROP TABLE IF EXISTS `patient`;
-
 CREATE TABLE `patient` (
   `p_no` int(40) NOT NULL AUTO_INCREMENT,
   `p_name` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
@@ -174,10 +171,10 @@ CREATE TABLE `patient` (
   PRIMARY KEY (`p_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Table structure for table `register` */
-
+-- ----------------------------
+-- Table structure for register
+-- ----------------------------
 DROP TABLE IF EXISTS `register`;
-
 CREATE TABLE `register` (
   `r_no` int(5) NOT NULL DEFAULT '0',
   `p_name` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
@@ -187,10 +184,10 @@ CREATE TABLE `register` (
   PRIMARY KEY (`r_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Table structure for table `right` */
-
+-- ----------------------------
+-- Table structure for right
+-- ----------------------------
 DROP TABLE IF EXISTS `right`;
-
 CREATE TABLE `right` (
   `right_id` int(8) NOT NULL AUTO_INCREMENT COMMENT '权限标识',
   `right_name` varchar(20) DEFAULT NULL COMMENT '权限名',
@@ -203,10 +200,10 @@ CREATE TABLE `right` (
   PRIMARY KEY (`right_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
-/*Table structure for table `role` */
-
+-- ----------------------------
+-- Table structure for role
+-- ----------------------------
 DROP TABLE IF EXISTS `role`;
-
 CREATE TABLE `role` (
   `role_id` int(8) NOT NULL AUTO_INCREMENT COMMENT '角色标识',
   `role_name` varchar(20) NOT NULL COMMENT '角色名称',
@@ -217,33 +214,29 @@ CREATE TABLE `role` (
   PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `role_right` */
-
+-- ----------------------------
+-- Table structure for role_right
+-- ----------------------------
 DROP TABLE IF EXISTS `role_right`;
-
 CREATE TABLE `role_right` (
   `role_id` int(8) NOT NULL COMMENT '角色标识',
-  `right_id` int(8) NOT NULL COMMENT '权限标识',
-  KEY `FK_ROLE_RIGHT_ROLEID` (`role_id`),
-  KEY `FK_ROLE_RIGHT_RIGHTID` (`right_id`),
-  CONSTRAINT `FK_ROLE_RIGHT_RIGHTID` FOREIGN KEY (`right_id`) REFERENCES `right` (`right_id`),
-  CONSTRAINT `FK_ROLE_RIGHT_ROLEID` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`)
+  `right_id` int(8) NOT NULL COMMENT '权限标识'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Table structure for table `section` */
-
+-- ----------------------------
+-- Table structure for section
+-- ----------------------------
 DROP TABLE IF EXISTS `section`;
-
 CREATE TABLE `section` (
   `s_no` int(20) NOT NULL AUTO_INCREMENT,
   `s_name` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`s_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Table structure for table `user` */
-
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
 DROP TABLE IF EXISTS `user`;
-
 CREATE TABLE `user` (
   `user_id` int(5) NOT NULL,
   `user_name` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
@@ -251,8 +244,3 @@ CREATE TABLE `user` (
   `user_role` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

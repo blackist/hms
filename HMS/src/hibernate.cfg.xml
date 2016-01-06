@@ -17,9 +17,6 @@
 		</property>
 		
 		<mapping resource="com/xzit/hms/bean/user/User.hbm.xml" />
-		<mapping resource="com/xzit/hms/bean/user/RoleRight.hbm.xml" />
-		<mapping resource="com/xzit/hms/bean/user/Right.hbm.xml" />
-		<mapping resource="com/xzit/hms/bean/user/Role.hbm.xml" />
 		<mapping resource="com/xzit/hms/bean/role/RoleRight.hbm.xml" />
 		<mapping resource="com/xzit/hms/bean/role/Role.hbm.xml" />
 		<mapping resource="com/xzit/hms/bean/role/Right.hbm.xml" />
