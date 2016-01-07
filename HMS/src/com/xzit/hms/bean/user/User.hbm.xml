@@ -8,7 +8,7 @@
     <class name="com.xzit.hms.bean.user.User" table="user" catalog="hms">
         <id name="userId" type="java.lang.Integer">
             <column name="user_id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="userName" type="java.lang.String">
             <column name="user_name" length="10" />

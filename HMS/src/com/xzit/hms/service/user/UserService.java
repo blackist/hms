@@ -17,5 +17,5 @@ package com.xzit.hms.service.user;
 */
 public interface UserService {
 	
-	public void test();
+	public void save();
 }

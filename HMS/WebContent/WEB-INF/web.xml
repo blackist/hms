@@ -20,16 +20,6 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-	<!-- spring 容器 -->
-	<!-- 加载spring容器 -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:spring/applicationContext.xml</param-value>
-	</context-param>
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	
 	<!-- struts 前端控制器 -->
 	<filter>
 		<filter-name>struts2</filter-name>

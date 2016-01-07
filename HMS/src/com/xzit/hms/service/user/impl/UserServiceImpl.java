@@ -8,9 +8,8 @@
 */
 package com.xzit.hms.service.user.impl;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
+import com.xzit.hms.bean.user.User;
+import com.xzit.hms.dao.user.impl.UserDao;
 import com.xzit.hms.service.user.UserService;
 
 /**
@@ -20,13 +19,17 @@ import com.xzit.hms.service.user.UserService;
  * @date 2016年1月4日 下午9:44:56 <br>
  * @version V1.0 <br>
  */
-@Service("userService")
 public class UserServiceImpl implements UserService {
-
-	private 
+	
+	private UserDao userDao = new UserDao();
 	
 	@Override
-	public void test() {
+	public void save() {
 		System.out.println("TEST SUCCESS!");
+		User user = new User();
+		user.setPassword("123");
+		user.setUserName("s");
+		user.setUserRole("2");
+		userDao.saveEntity(user);
 	}
 }
