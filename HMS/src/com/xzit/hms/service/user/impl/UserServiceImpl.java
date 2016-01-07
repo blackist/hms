@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public void save() {
-		System.out.println("TEST SUCCESS!");
 		User user = new User();
 		user.setPassword("123");
 		user.setUserName("s");
