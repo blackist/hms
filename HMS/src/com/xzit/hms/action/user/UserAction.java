@@ -26,12 +26,14 @@ import com.xzit.hms.service.user.UserService;
 @Namespace("/user")
 public class UserAction extends BaseAction<User> {
 
+	@Resource
 	private UserService userService;
 
 	private User user = new User();
 
 	@Action(value = "/test", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
 	public String test() {
+		userService.test();
 		return SUCCESS;
 	}
 
@@ -44,9 +46,5 @@ public class UserAction extends BaseAction<User> {
 		return userService;
 	}
 
-	@Resource
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
 
 }
