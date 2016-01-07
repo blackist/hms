@@ -11,12 +11,12 @@ package com.xzit.hms.dao.impl;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.hibernate.Query;
-import org.hibernate.SessionFactory;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.xzit.hms.dao.BaseDao;
+import com.xzit.hms.dao.HibernateSessionFactory;
 
 /**
  * @ClassName: BaseDaoImpl <br>
@@ -28,12 +28,14 @@ import com.xzit.hms.dao.BaseDao;
 @SuppressWarnings("unchecked")
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
-	@Resource
-	private SessionFactory sf;
+	private Session session;
+	private Transaction tr;
 
 	private Class<T> clazz;
 
 	public BaseDaoImpl() {
+		session = HibernateSessionFactory.getSession();
+		tr = session.beginTransaction();
 		// 得到泛型化超类
 		ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
 		clazz = (Class<T>) type.getActualTypeArguments()[0];
@@ -41,35 +43,45 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	public void saveEntity(T t) {
-		sf.getCurrentSession().save(t);
+		session.save(t);
+		tr.commit();
+		session.close();
 	}
 
 	public void saveOrUpdateEntity(T t) {
-		sf.getCurrentSession().saveOrUpdate(t);
+		session.saveOrUpdate(t);
+		tr.commit();
+		session.close();
 	}
 
 	public void deleteEntity(T t) {
-		sf.getCurrentSession().delete(t);
+		session.delete(t);
+		tr.commit();
+		session.close();
 	}
 
 	public void updateEntity(T t) {
-		sf.getCurrentSession().update(t);
+		session.update(t);
+		tr.commit();
+		session.close();
 	}
 
 	public void batchEntityBySQL(String hql, Object... objects) {
-		Query q = sf.getCurrentSession().createQuery(hql);
+		Query q = session.createQuery(hql);
 		for (int i = 0; i < objects.length; i++) {
 			q.setParameter(i, objects[i]);
 		}
 		q.executeUpdate();
+		tr.commit();
+		session.close();
 	}
 
 	public T getEntity(Integer id) {
-		return (T) sf.getCurrentSession().get(clazz, id);
+		return (T) session.get(clazz, id);
 	}
 
 	public List<T> findEntityByHQL(String hql, Object... objects) {
-		Query q = sf.getCurrentSession().createQuery(hql);
+		Query q = session.createQuery(hql);
 		for (int i = 0; i < objects.length; i++) {
 			q.setParameter(i, objects[i]);
 		}

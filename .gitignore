@@ -1,6 +1,8 @@
 
 /target/
 
+.mtj.tmp/
+
 *.bak
 
 *.class
@@ -13,3 +15,5 @@ target
 .classpath
 .settings
 .metadata
+
+hs_err_pid*

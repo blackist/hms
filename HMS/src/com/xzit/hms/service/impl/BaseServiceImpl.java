@@ -10,8 +10,6 @@ package com.xzit.hms.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import com.xzit.hms.dao.BaseDao;
 import com.xzit.hms.service.BaseService;
 
@@ -24,7 +22,6 @@ import com.xzit.hms.service.BaseService;
  */
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
-	@Resource
 	private BaseDao<T> baseDao;
 
 	public void saveEntity(T t) {

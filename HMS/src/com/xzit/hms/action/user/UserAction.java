@@ -3,7 +3,7 @@
 * @Package com.xzit.hms.action.user <br>
 * @Description: TODO <br>
 * @author Mr.Black <br>
-* @date 2016年1月4日 下午7:44:06 <br>
+* @date 2016骞�鏈�鏃�涓嬪崍7:44:06 <br>
 * @version V1.0 <br>
 */
 package com.xzit.hms.action.user;
@@ -11,33 +11,38 @@ package com.xzit.hms.action.user;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
-
 import com.xzit.hms.action.BaseAction;
+import com.xzit.hms.bean.user.User;
+import com.xzit.hms.service.user.UserService;
+import com.xzit.hms.service.user.impl.UserServiceImpl;
 
 /**
  * @ClassName: UserAction <br>
  * @Description: TODO <br>
  * @author Mr.Black <br>
- * @date 2016年1月4日 下午7:44:06 <br>
  * @version V1.0 <br>
  */
+@SuppressWarnings("serial")
 @Namespace("/user")
-public class UserAction extends BaseAction<String> {
+public class UserAction extends BaseAction<User> {
 
-	/**
-	 * @Fields serialVersionUID : TODO <br>
-	 */
-	private static final long serialVersionUID = 2682293628861770827L;
+	private UserService userService = new UserServiceImpl();
+	
+	private User user = new User();
 
 	@Action(value = "/test", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
 	public String test() {
+		userService.save();
 		return SUCCESS;
 	}
 
 	@Override
-	public String getModel() {
-		// TODO Auto-generated method stub
-		return null;
+	public User getModel() {
+		return user;
+	}
+
+	public UserService getUserService() {
+		return userService;
 	}
 
 }
