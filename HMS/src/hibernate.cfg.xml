@@ -10,7 +10,7 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<property name="connection.url">jdbc:mysql://localhost:3306/hms?characterEncoding=utf8</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">root</property>
+		<property name="connection.password">123</property>
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		
