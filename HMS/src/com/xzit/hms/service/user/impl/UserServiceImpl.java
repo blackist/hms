@@ -9,6 +9,8 @@
 package com.xzit.hms.service.user.impl;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import com.xzit.hms.service.user.UserService;
 
 /**
@@ -18,9 +20,11 @@ import com.xzit.hms.service.user.UserService;
  * @date 2016年1月4日 下午9:44:56 <br>
  * @version V1.0 <br>
  */
-@Component("userService")
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
+	private 
+	
 	@Override
 	public void test() {
 		System.out.println("TEST SUCCESS!");

@@ -21,6 +21,6 @@ import com.xzit.hms.dao.impl.BaseDaoImpl;
 * @version V1.0  <br>
 */
 @Repository("userDao")
-public class UserDaoImpl extends BaseDaoImpl<User> {
+public class UserDao extends BaseDaoImpl<User> {
 
 }
