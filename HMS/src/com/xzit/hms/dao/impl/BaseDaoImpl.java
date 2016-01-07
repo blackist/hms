@@ -15,8 +15,6 @@ import javax.annotation.Resource;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
-
 import com.xzit.hms.dao.BaseDao;
 
 /**

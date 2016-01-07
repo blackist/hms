@@ -9,8 +9,6 @@
 package com.xzit.hms.service.user.impl;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import com.xzit.hms.service.user.UserService;
 
 /**

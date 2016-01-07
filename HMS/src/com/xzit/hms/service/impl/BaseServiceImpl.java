@@ -10,8 +10,6 @@ package com.xzit.hms.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import com.xzit.hms.dao.BaseDao;
 import com.xzit.hms.service.BaseService;
 
