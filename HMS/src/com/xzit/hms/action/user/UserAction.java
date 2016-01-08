@@ -27,13 +27,23 @@ import com.xzit.hms.service.user.impl.UserServiceImpl;
 public class UserAction extends BaseAction<User> {
 
 	private UserService userService = new UserServiceImpl();
-	
+
 	private User user = new User();
 
 	@Action(value = "/test", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
 	public String test() {
 		userService.save();
 		return SUCCESS;
+	}
+
+	@Action(value = "/login", results = { @Result(name = "success", location = "/WEB-INF/jsp/index.jsp"),
+			@Result(name = "fail", location = "/login.html") })
+	public String login() {
+		if (user.getUserName() != null) {
+			userService.getUser(user);
+			return SUCCESS;
+		}
+		return "fail";
 	}
 
 	@Override

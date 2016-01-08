@@ -20,4 +20,5 @@ import com.xzit.hms.dao.impl.BaseDaoImpl;
  */
 public class UserDao extends BaseDaoImpl<User> {
 
+	
 }

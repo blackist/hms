@@ -8,6 +8,8 @@
 */ 
 package com.xzit.hms.service.user;
 
+import com.xzit.hms.bean.user.User;
+
 /**
 * @ClassName: UserService <br>
 * @Description: TODO <br>
@@ -18,4 +20,6 @@ package com.xzit.hms.service.user;
 public interface UserService {
 	
 	public void save();
+	
+	public User getUser(User user);
 }
