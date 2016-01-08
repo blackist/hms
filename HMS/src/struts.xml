@@ -13,8 +13,6 @@
 	<constant name="struts.serve.static.browserCache" value="false" />
 	
 	<package name="default" extends="struts-default" namespace="/ry">
-	<action name="logacton" class="com.xzit.hms.action">
 	
-	</action>
 	</package>
 </struts>    
