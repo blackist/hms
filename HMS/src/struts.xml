@@ -12,6 +12,9 @@
 	<!-- 设置浏览器是否缓存静态内容。默认值为true(生产环境下使用),开发阶段最好关闭  -->
 	<constant name="struts.serve.static.browserCache" value="false" />
 	
-	<package name="default" extends="struts-default">
+	<package name="default" extends="struts-default" namespace="/ry">
+	<action name="logacton" class="com.xzit.hms.action">
+	
+	</action>
 	</package>
 </struts>    
