@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
- <form action="ry/logAction!Login" method="post">
-		请输入用户名：<input name="userBean.name"><br/>
-		请输入密码：   <input name="userBean.pwd"><br/>
-		<input type="submit"   value="登陆">
-	</form>
+
 </body>
 </html>
