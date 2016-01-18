@@ -46,6 +46,11 @@ public class UserAction extends BaseAction<User> {
 		return "fail";
 	}
 
+	@Action(value = "/indexUser", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
+	public String indexUser() {
+		return SUCCESS;
+	}
+
 	@Override
 	public User getModel() {
 		return user;

@@ -31,7 +31,7 @@
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/app.js"></script>
 	
-	<script src="assets/script/user-index.js"></script>
+	<script src="assets/script/user/user-index.js"></script>
 	
 </body>
 </html>
