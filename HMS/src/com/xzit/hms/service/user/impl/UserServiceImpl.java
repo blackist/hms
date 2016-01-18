@@ -26,9 +26,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void save() {
 		User user = new User();
-		user.setPassword("123");
-		user.setUserName("s");
-		user.setUserRole("2");
 		userDao.saveEntity(user);
 	}
 

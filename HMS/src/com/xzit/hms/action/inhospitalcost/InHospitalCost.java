@@ -14,7 +14,12 @@ public class InHospitalCost extends BaseAction<InhospitalCost>{
 	
 	@Action(value="getinhosCost",results={@Result(name="success",location="/WEB-INF/jsp/inhospital/inhospitalcost.jsp")})
 	public String getInHosCost(){
-		return "success";
+		return SUCCESS;
+	}
+	
+	@Action(value="findinhosCost",results={@Result(name="success",location="/WEB-INF/jsp/inhospital/findinhospcost.jsp")})
+	public String findInHosCost(){
+		return SUCCESS;
 	}
 
 	public InhospitalCost getModel() {
