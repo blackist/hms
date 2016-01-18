@@ -4,9 +4,8 @@
 <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
 	<div class="am-offcanvas-bar admin-offcanvas-bar">
 		<ul class="am-list admin-sidebar-list">
-			<li><a href="admin-index.html"><span class="am-icon-home"></span>
+			<li><a href="index.action"><span class="am-icon-home"></span>
 					首页</a></li>
-
 			<%@ include file="/WEB-INF/jsp/side-bar/bar-patient.jsp"%>
 			<%@ include file="/WEB-INF/jsp/side-bar/bar-medicine.jsp"%>
 			<%@ include file="/WEB-INF/jsp/side-bar/bar-inhospital.jsp"%>

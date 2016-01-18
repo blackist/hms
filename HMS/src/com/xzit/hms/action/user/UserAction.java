@@ -36,8 +36,9 @@ public class UserAction extends BaseAction<User> {
 		return SUCCESS;
 	}
 
-	@Action(value = "/login", results = { @Result(name = "success", location = "/WEB-INF/jsp/index.jsp"),
-			@Result(name = "fail", location = "/login.html") })
+	@Action(value = "/login", results = { @Result(name = "fail", location = "/login.html"),
+			@Result(type = "chain", name = "success", location = "index.action")
+	})
 	public String login() {
 		if (user.getUserName() != null) {
 			userService.getUser(user);
@@ -46,8 +47,16 @@ public class UserAction extends BaseAction<User> {
 		return "fail";
 	}
 
-	@Action(value = "/indexUser", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
+	@Action(value = "/indexUser", results = {
+			@Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
 	public String indexUser() {
+		return SUCCESS;
+	}
+
+	@Action(value = "/queryUsers", results = {
+			@Result(name = "success", location = "/WEB-INF/jsp/user/user-query.jsp") })
+	public String queryUsers() {
+
 		return SUCCESS;
 	}
 

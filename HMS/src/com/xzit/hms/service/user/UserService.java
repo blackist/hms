@@ -8,6 +8,8 @@
 */ 
 package com.xzit.hms.service.user;
 
+import java.util.List;
+
 import com.xzit.hms.bean.user.User;
 
 /**
@@ -22,4 +24,6 @@ public interface UserService {
 	public void save();
 	
 	public User getUser(User user);
+	
+	public List<User> queryUsers();
 }

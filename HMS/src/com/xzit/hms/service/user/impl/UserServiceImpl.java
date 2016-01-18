@@ -8,6 +8,8 @@
 */
 package com.xzit.hms.service.user.impl;
 
+import java.util.List;
+
 import com.xzit.hms.bean.user.User;
 import com.xzit.hms.dao.user.impl.UserDao;
 import com.xzit.hms.service.user.UserService;
@@ -26,9 +28,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void save() {
 		User user = new User();
-		user.setPassword("123");
-		user.setUserName("s");
-		user.setUserRole("2");
 		userDao.saveEntity(user);
 	}
 
@@ -41,4 +40,12 @@ public class UserServiceImpl implements UserService {
 		}
 		return user0;
 	}
+
+	@Override
+	public List<User> queryUsers() {
+		List<User> userList = null;
+		return userList;
+	}
+	
+	
 }
