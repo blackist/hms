@@ -16,6 +16,6 @@
 				相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
 		<li><a href="admin-log.html"><span class="am-icon-calendar"></span>
 				系统日志</a></li>
-		<li><a href="admin-404.html"><span class="am-icon-bug"></span>
-				404</a></li>
+		<li><a href="inhospitalcost/getinhosCost.action"><span class="am-icon-bug"></span>
+				住院费用查询</a></li>
 	</ul></li>
