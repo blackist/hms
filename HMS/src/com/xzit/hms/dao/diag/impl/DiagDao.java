@@ -1,5 +1,5 @@
 package com.xzit.hms.dao.diag.impl;
 
-public class diagDao {
+public class DiagDao {
 
 }
