@@ -11,7 +11,7 @@
 <base href="<%=basePath%>">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Amaze UI Admin index Examples</title>
+<title>XZIT 医院管理系统</title>
 <meta name="description" content="这是一个 index 页面">
 <meta name="keywords" content="index">
 <meta name="viewport"
@@ -33,7 +33,7 @@
 
 	<header class="am-topbar admin-header">
 	<div class="am-topbar-brand">
-		<strong>Amaze UI</strong> <small>后台管理模板</small>
+		<strong>XZIT</strong> <small>医院管理系统</small>
 	</div>
 
 	<button
@@ -103,7 +103,7 @@
 
 	<footer>
 	<hr>
-	<p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under
+	<p class="am-padding-left">© 2016 AllMobilize, Inc. Licensed under
 		MIT license.</p>
 	</footer>
 
