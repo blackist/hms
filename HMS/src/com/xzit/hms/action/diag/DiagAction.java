@@ -30,8 +30,8 @@ public class DiagAction extends BaseAction<DiagnosticInfo> {
 	}
 
 	@Action(value = "/saveDiag", results = {
-			@Result(name = "success", location = "/WEB-INF/jsp/dig/diag-index.jsp"),
-			@Result(name = "input", location = "/WEB-INF/jsp/dig/diag-index.jsp") })
+			@Result(name = "success", location = "/WEB-INF/jsp/diag/diag-index.jsp"),
+			@Result(name = "input", location = "/WEB-INF/jsp/diag/diag-index.jsp") })
 	public String saveDiag() {
 		
 		diagService.save(diagnosticInfo);
