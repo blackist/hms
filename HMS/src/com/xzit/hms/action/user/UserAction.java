@@ -8,10 +8,14 @@
 */
 package com.xzit.hms.action.user;
 
+import java.util.Map;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
+
 import com.xzit.hms.action.BaseAction;
+import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.bean.user.User;
 import com.xzit.hms.service.user.UserService;
 import com.xzit.hms.service.user.impl.UserServiceImpl;
@@ -30,24 +34,19 @@ public class UserAction extends BaseAction<User> {
 
 	private User user = new User();
 
-	@Action(value = "/test", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
-	public String test() {
-		userService.save();
+	private PageBean<Map<String, Object>> pb;
+
+	@Action(value = "/indexUser", results = {
+			@Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
+	public String indexUser() {
 		return SUCCESS;
 	}
 
-	@Action(value = "/login", results = { @Result(name = "success", location = "/WEB-INF/jsp/index.jsp"),
-			@Result(name = "fail", location = "/login.html") })
-	public String login() {
-		if (user.getUserName() != null) {
-			userService.getUser(user);
-			return SUCCESS;
-		}
-		return "fail";
-	}
-
-	@Action(value = "/indexUser", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
-	public String indexUser() {
+	@Action(value = "/queryUsers", results = {
+			@Result(name = "success", location = "/WEB-INF/jsp/user/user-query.jsp") })
+	public String queryUsers() {
+		pb = userService.queryUsers(getPagecode(), getPagesize(), "");
+		System.out.println(pb.toString());
 		return SUCCESS;
 	}
 
@@ -58,6 +57,26 @@ public class UserAction extends BaseAction<User> {
 
 	public UserService getUserService() {
 		return userService;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+	public PageBean<Map<String, Object>> getPb() {
+		return pb;
+	}
+
+	public void setPb(PageBean<Map<String, Object>> pb) {
+		this.pb = pb;
 	}
 
 }
