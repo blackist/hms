@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <div class="am-cf am-padding">
 	<div class="am-fl am-cf">
 		<strong class="am-text-primary am-text-lg">表单</strong> / <small>form</small>
@@ -50,18 +51,19 @@
 					</tr>
 				</thead>
 				<tbody>
+				<s:iterator value="pb.beanlist" var="patient">
 					<tr>
 						<td><input type="checkbox" /></td>
-						<td></td>
+						<td><s:property value="#patient.PNo" /></td>
 						<!-- ID -->
-						<td>Business management</td>
-						<td>default</td>
-						<td>测试1号</td>
-						<td>2014年9月4日 7:28:47</td>
+						<td><s:property value="#patient.PName" /></td>
+						<td><s:property value="#patient.PSex" /></td>
+						<td><s:property value="#patient.PAge" /></td>
+						<td><s:property value="#patient.PHistory" /></td>
 						<td>
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
-									<button onclick="updatePatient()"
+									<button onclick = "revise()" type="button"
 										class="am-btn am-btn-default am-btn-xs am-text-secondary">
 										<span class="am-icon-pencil-square-o"></span> 编辑
 									</button>
@@ -73,9 +75,11 @@
 							</div>
 						</td>
 					</tr>
+				</s:iterator>
 				</tbody>
 			</table>
 		</form>
+		<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
 	</div>
 </div>
 <script src="assets/script/patient/patient-query.js"></script>
