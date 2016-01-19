@@ -12,7 +12,8 @@
 	<div class="am-u-sm-12 am-u-md-6">
 		<div class="am-btn-toolbar">
 			<div class="am-btn-group am-btn-group-xs">
-				<button type="button" class="am-btn am-btn-default">
+				<button type="button" class="am-btn am-btn-default"
+					onclick="addUser()">
 					<span class="am-icon-plus"></span> 新增
 				</button>
 				<button type="button" class="am-btn am-btn-default">
@@ -23,9 +24,12 @@
 	</div>
 	<div class="am-u-sm-12 am-u-md-3">
 		<div class="am-input-group am-input-group-sm">
-			<input type="text" class="am-form-field"> <span
-				class="am-input-group-btn">
-				<button class="am-btn am-btn-default" type="button">搜索</button>
+			<input id="queryStr" placeholder="用户名/角色" type="text"
+				class="am-form-field" value="${queryStr}"
+				onkeypress="if(event.keyCode==13){queryBtn.click();return false;}">
+			<span class="am-input-group-btn" onclick="if()">
+				<button class="am-btn am-btn-default" type="button" id="queryBtn"
+					onclick="queryUsers(1)">搜索</button>
 			</span>
 		</div>
 	</div>

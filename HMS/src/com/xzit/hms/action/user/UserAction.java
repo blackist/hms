@@ -36,6 +36,8 @@ public class UserAction extends BaseAction<User> {
 
 	private PageBean<Map<String, Object>> pb;
 
+	private String queryStr;
+
 	@Action(value = "/indexUser", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
 	public String indexUser() {
@@ -45,8 +47,13 @@ public class UserAction extends BaseAction<User> {
 	@Action(value = "/queryUsers", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/user/user-query.jsp") })
 	public String queryUsers() {
-		pb = userService.queryUsers(getPagecode(), getPagesize(), "");
+		pb = userService.queryUsers(getPagecode(), getPagesize(), queryStr);
 		System.out.println(pb.toString());
+		return SUCCESS;
+	}
+
+	@Action(value = "/addUser", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-add.jsp") })
+	public String addUser() {
 		return SUCCESS;
 	}
 
@@ -77,6 +84,14 @@ public class UserAction extends BaseAction<User> {
 
 	public void setPb(PageBean<Map<String, Object>> pb) {
 		this.pb = pb;
+	}
+
+	public String getQueryStr() {
+		return queryStr;
+	}
+
+	public void setQueryStr(String queryStr) {
+		this.queryStr = queryStr;
 	}
 
 }

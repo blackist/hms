@@ -26,15 +26,15 @@ public class PageBean<T> {
 			if (pagecode <= pcRange) {
 				rightAdd = pcRange - pagecode + 1;
 			}
-			// å·¦é¡µç 
+			// ÓÒÒ³Âë
 			for (int i = (pagecode - pcRange - leftAdd); i < pagecode; i++) {
 				if (i > 0) {
 					pcList.add(i);
 				}
 			}
-			// å½“å‰é¡µç 
+			// µ±Ç°Ò³Âë
 			pcList.add(pagecode);
-			// å³é¡µç 
+			// ×óÒ³Âë
 			for (int i = (pagecode + 1); i <= (pagecode + pcRange + rightAdd) && i <= totalpages; i++) {
 				pcList.add(i);
 			}
