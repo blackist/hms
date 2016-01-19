@@ -30,7 +30,8 @@ public class UserDao extends BaseDaoImpl<User> {
 		pb.setPagecode(pagecode);
 		pb.setPagesize(pagesize);
 
-		String where = "where (u.userName like '%" + queryStr + "%') and r.roleId = u.userRole";
+		String where = "where (u.userName like '%" + queryStr + "%' or r.roleName like '%" + queryStr
+				+ "%') and r.roleId = u.userRole";
 
 		String sqlRows = "select count(*) from User u, Role r " + where;
 		int totalrecards = ((Number) session.createQuery(sqlRows).uniqueResult()).intValue();
@@ -39,7 +40,8 @@ public class UserDao extends BaseDaoImpl<User> {
 
 		String sql = "select new map(u.userId as userId, u.userName as userName, r.roleName as roleName) from User u, Role r "
 				+ where;
-		pb.setBeanlist(session.createQuery(sql).setFirstResult((pagecode - 1) * pagesize).setMaxResults(pagesize).list());
+		pb.setBeanlist(
+				session.createQuery(sql).setFirstResult((pagecode - 1) * pagesize).setMaxResults(pagesize).list());
 
 		return pb;
 	}
