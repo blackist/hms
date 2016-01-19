@@ -26,7 +26,6 @@ public class MainAction extends BaseAction {
 	
 	@Override
 	public Object getModel() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -30,23 +30,6 @@ public class UserAction extends BaseAction<User> {
 
 	private User user = new User();
 
-	@Action(value = "/test", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
-	public String test() {
-		userService.save();
-		return SUCCESS;
-	}
-
-	@Action(value = "/login", results = { @Result(name = "fail", location = "/login.html"),
-			@Result(type = "chain", name = "success", location = "index.action")
-	})
-	public String login() {
-		if (user.getUserName() != null) {
-			userService.getUser(user);
-			return SUCCESS;
-		}
-		return "fail";
-	}
-
 	@Action(value = "/indexUser", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
 	public String indexUser() {
