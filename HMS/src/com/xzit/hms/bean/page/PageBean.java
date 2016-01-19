@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PageBean<T> {
 	private int pagecode;
-	private int totalrecards;
+	private long totalrecards;
 	private int pagesize;
 //	private int totalpages;
 	private List<T> beanlist;
@@ -14,10 +14,10 @@ public class PageBean<T> {
 	public void setPagecode(int pagecode) {
 		this.pagecode = pagecode;
 	}
-	public int getTotalrecards() {
+	public long getTotalrecards() {
 		return totalrecards;
 	}
-	public void setTotalrecards(int totalrecards) {
+	public void setTotalrecards(long totalrecards) {
 		this.totalrecards = totalrecards;
 	}
 	public int getPagesize() {
@@ -33,8 +33,14 @@ public class PageBean<T> {
 		this.beanlist = beanlist;
 	}
 	public int getTotalpages(){
-		int totalpages = totalrecards / pagesize;
+		int totalpages = (int)totalrecards / pagesize;
 		return totalrecards % pagesize == 0 ? totalpages : totalpages+1;
+	}
+	@Override
+	public String toString() {
+		return "PageBean [pagecode=" + pagecode + ", totalrecards="
+				+ totalrecards + ", pagesize=" + pagesize + ", beanlist="
+				+ beanlist + "]";
 	}
 
 }
