@@ -19,8 +19,8 @@
 		<div class="am-u-sm-12 am-u-md-6">
 			<div class="am-btn-toolbar">
 				<div class="am-btn-group am-btn-group-xs">
-					<button type="button" class="am-btn am-btn-default">
-						<span class="am-icon-plus"></span> 新增
+					<button type="button" class="am-btn am-btn-default" onclick="javascript:getAddpage()">
+						<span class="am-icon-plus"></span> 生成住院费用单
 					</button>
 					<!--  <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
             <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
@@ -30,9 +30,10 @@
 		</div>
 		<div class="am-u-sm-12 am-u-md-3">
 			<div class="am-input-group am-input-group-sm">
-				<input type="text" class="am-form-field"> <span
-					class="am-input-group-btn">
-					<button class="am-btn am-btn-default" type="button">搜索</button>
+				<input type="text" class="am-form-field" placeholder="病人姓名 / 主治医师" id="conditions" value="${conditions}" onkeypress="if(event.keyCode==13){search.click();return false;}"
+				> 
+				<span class="am-input-group-btn">
+					<button class="am-btn am-btn-default" type="button" onclick="javascript:queryInhospCost(1)" id="search">搜索</button>
 				</span>
 			</div>
 		</div>
@@ -56,30 +57,44 @@
 							<th>操作</th>
 						</tr>
 					</thead>
-					<tbody>
-						<s:iterator value="pb.beanlist" var="cost">
-							<tr>
-								<th>1</th>
-								<td><s:property value="#cost.PName" /></td>
-								<td><s:property value="#cost.DName" /></td>
-								<td><s:property value="#cost.BNo" /></td>
-								<td><s:property value="#cost.ITime" /></td>
-								<td><s:property value="#cost.OTime" /></td>
-								<td><s:property value="#cost.YChange" /></td>
-								<td><s:property value="#cost.sumprice" /></td>
-								<td><s:property value="#cost.total" /></td>
-								<td></td>
-							</tr>
-						</s:iterator>
-					</tbody>
+					       <tbody>
+         	<s:iterator value="pb.beanlist" var="cost" status="status">
+             <tr>
+           	<th><s:property value="#status.count"/></th>
+             	<td><s:property value="#cost.PName"/></td>
+             	<td><s:property value="#cost.DName"/></td>
+             	<td><s:property value="#cost.BNo"/></td>
+             	<td><s:property value="#cost.ITime"/></td>
+             	<td><s:property value="#cost.OTime"/></td>
+             	<td><s:property value="#cost.YChange"/></td>
+             	<td><s:property value="#cost.sumprice"/></td>
+             	<td><s:property value="#cost.total"/></td>
+           	<td>
+           		<button type="button" class="am-btn am-btn-default am-radius am-btn-xs" style="color: red">删除</button></td>
+             </tr>
+             </s:iterator>
+           </tbody>
 				</table>
-				<div class="am-cf"></div>
 				<hr />
-				<p>注：.....</p>
 			</form>
 			<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
 		</div>
-
 	</div>
+	<script type="text/javascript">
+	$(function(){
+		_pageIndexBond(queryInhospCost);
+	});
+	
+	function getAddpage(){
+		$("#content-box").load("inhospitalcost/getaddpage.action");
+	}
+	
+	function queryInhospCost(pagecode){
+		var conditions = $("#conditions").val();
+		$.post("inhospitalcost/findinhosCost.action",{"pagecode":pagecode,"conditions":conditions},function(data){
+			$("#content-box").html(data);
+		});
+	}
+	</script>
 </body>
 </html>

@@ -24,13 +24,34 @@ public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 				+ "where ihc.PNo=p.PNo and ihc.PNo=ip.PNo and ihc.MNo=ml.MNo ";
 		String param = "";
 		if(condidtions!=null && !condidtions.trim().isEmpty()){
-			param = "and p.PName like '%"+condidtions+"%' or ip.DName like '%"+condidtions+"%'";
+			param = "and ( p.PName like '%"+condidtions+"%' or ip.DName like '%"+condidtions+"%')";
 		}
 		long totalrecords = (Long)session.createQuery(getCount+param).uniqueResult();
 		List<Map<String, Object>> costList = session.createQuery(findInfo+param)
 											.setFirstResult((pagecode-1)*pagesize)
 											.setMaxResults(pagesize)
 											.list();
+		pb.setPagecode(pagecode);
+		pb.setPagesize(pagesize);
+		pb.setTotalrecards(totalrecords);
+		pb.setBeanlist(costList);
+		return pb;
+	}
+	
+	public PageBean<Map<String, Object>> findPatient(Integer pagecode,Integer pagesize){
+		Session session = HibernateSessionFactory.getSession();
+		PageBean<Map<String, Object>> pb = new PageBean<>();
+		
+		String getCount = "select count(*) from Inpatient ip "
+				+ "where ip.PNo not in (select ihc.PNo from InhospitalCost ihc)";
+		String findPatient = "select new map(ip.PNo as PNo,ip.BNo as BNo,ml.MNo as MNo,p.PName as PName,ip.DName as DName) "
+				+ "from Patient p,Inpatient ip,MediList ml "
+				+ "where ip.PNo not in (select ihc.PNo from InhospitalCost ihc) and ip.PNo = p.PNo and p.PName = ml.PName";
+		long totalrecords = (Long)session.createQuery(getCount).uniqueResult();
+		List<Map<String, Object>> costList = session.createQuery(findPatient)
+				.setFirstResult((pagecode-1)*pagesize)
+				.setMaxResults(pagesize)
+				.list();
 		pb.setPagecode(pagecode);
 		pb.setPagesize(pagesize);
 		pb.setTotalrecards(totalrecords);

@@ -25,7 +25,7 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 
 	private InhospitalCost inHospCost = new InhospitalCost();
 
-	private String condidtions;
+	private String conditions;
 	private int pagecode;
 	private PageBean<Map<String, Object>> pb;
 
@@ -40,11 +40,22 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 			pagecode = 1;
 		}
 		int pagesize = 8;
-		if (condidtions == null || condidtions.trim().isEmpty()) {
-			condidtions = "";
+		if (conditions == null || conditions.trim().isEmpty()) {
+			conditions = "";
 		}
 		pb = inHospcostService.findCost(pagecode,
-				pagesize, condidtions);
+				pagesize, conditions);
+		return SUCCESS;
+	}
+	
+	@Action(value = "getaddpage", results = { @Result(name = "success", location = "/WEB-INF/jsp/inhospital/addcostlist.jsp") })
+	public String getAddPage(){
+		if (pagecode == 0) {
+			pagecode = 1;
+		}
+		int pagesize = 8;
+		pb = inHospcostService.findPatient(pagecode,pagesize);
+		System.out.println(pb.toString());
 		return SUCCESS;
 	}
 
@@ -68,11 +79,11 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 		this.pagecode = pagecode;
 	}
 
-	public String getCondidtions() {
-		return condidtions;
+	public String getConditions() {
+		return conditions;
 	}
 
-	public void setCondidtions(String condidtions) {
-		this.condidtions = condidtions;
+	public void setConditions(String conditions) {
+		this.conditions = conditions;
 	}
 }

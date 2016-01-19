@@ -7,12 +7,12 @@
 			<li><a href="index.action"><span class="am-icon-home"></span>
 					首页</a></li>
 			<%@ include file="/WEB-INF/jsp/side-bar/bar-patient.jsp"%>
-			<%@ include file="/WEB-INF/jsp/side-bar/bar-medicine.jsp"%>
+			<%@ include file="/WEB-INF/jsp/side-bar/bar-mediInfo.jsp"%>
 			<%@ include file="/WEB-INF/jsp/side-bar/bar-inhospital.jsp"%>
 			<%@ include file="/WEB-INF/jsp/side-bar/bar-hospital.jsp"%>
 			<%@ include file="/WEB-INF/jsp/side-bar/bar-user.jsp"%>
 			<%@ include file="/WEB-INF/jsp/side-bar/bar-role.jsp"%>
-
+            <%@ include file="/WEB-INF/jsp/side-bar/bar-medilist.jsp"%>
 			<li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
 		</ul>
 		<div class="am-panel am-panel-default admin-sidebar-panel">

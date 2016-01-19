@@ -9,9 +9,10 @@
 		<li><a href="patient/indexPatient.action" class="am-cf"><span
 				class="am-icon-check"></span>查询患者<span
 				class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-		<li><a href=" "><span
-				class="am-icon-puzzle-piece"></span>新增挂号</a></li>
-		<li><a href="diag/indexDiag.action"><span
+		<li><a href=" "><span class="am-icon-puzzle-piece"></span>新增挂号</a></li>
+		<li><a href="admin-log.html" class="am-cf"><span
+				class="am-icon-check"></span>今日病人</a></li>
+		<li><a href="diag/addDiag.action"><span
 				class="am-icon-puzzle-piece"></span> 病人诊断</a></li>
 		<li><a href="diag/queryDiag.action"><span class="am-icon-th"></span>
 				诊断统计</a></li>
@@ -19,5 +20,4 @@
 				系统日志</a></li>
 		<li><a href="admin-404.html"><span class="am-icon-bug"></span>
 				404</a></li>
-		
 	</ul></li>
