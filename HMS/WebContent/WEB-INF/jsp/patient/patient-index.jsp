@@ -15,7 +15,9 @@
 		<%@ include file="/WEB-INF/jsp/side-bar/side-bar.jsp"%>
 
 		<!-- content start -->
-		<div class="admin-content" id="admin-content"></div>
+		<div class="admin-content" id="admin-content">
+		
+		</div>
 		<!-- content end -->
 
 	</div>
@@ -30,7 +32,7 @@
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/app.js"></script>
-	<script src="assets/script/user/user-index.js"></script>
+	<script src="assets/script/patient/patient-index.js"></script>
 	
 </body>
 </html>
