@@ -8,7 +8,7 @@
     <class name="com.xzit.hms.bean.patient.DiagnosticInfo" table="diagnostic_info" catalog="hms">
         <id name="RId" type="java.lang.Integer">
             <column name="r_id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="DDate" type="java.util.Date">
             <column name="d_date" length="10">
