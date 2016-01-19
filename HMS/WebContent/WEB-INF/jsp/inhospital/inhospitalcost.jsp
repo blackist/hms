@@ -23,11 +23,11 @@
 	<script type="text/javascript">
 	$(function(){
 		$("#bar-inhospital").attr("class","am-list am-collapse admin-sidebar-sub am-in");
-// 		$("#content-box").load("inhospitalcost/findinhosCost.action");
-		$.post("inhospitalcost/findinhosCost.action",function(data){
-			$("#content-box").html(data);
-		});
+ 		$("#content-box").load("inhospitalcost/findinhosCost.action");
+ 		
 	});
+	
+	
 	</script>
 </body>
 </html>
