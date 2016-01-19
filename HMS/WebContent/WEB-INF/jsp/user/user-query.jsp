@@ -57,11 +57,12 @@
 							<td>
 								<div class="am-btn-toolbar">
 									<div class="am-btn-group am-btn-group-xs">
-										<button
-											class="am-btn am-btn-default am-btn-xs am-text-secondary">
+										<button type="button"
+											class="am-btn am-btn-default am-btn-xs am-text-secondary"
+											onclick="updateUser('<s:property value='#user.userId'/>')">
 											<span class="am-icon-pencil-square-o"></span> 编辑
 										</button>
-										<button
+										<button type="button"
 											class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
 											onclick="deleteUser('<s:property value='#user.userId'/>')">
 											<span class="am-icon-trash-o"></span> 删除
