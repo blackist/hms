@@ -8,8 +8,9 @@
 */
 package com.xzit.hms.service.user.impl;
 
-import java.util.List;
+import java.util.Map;
 
+import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.bean.user.User;
 import com.xzit.hms.dao.user.impl.UserDao;
 import com.xzit.hms.service.user.UserService;
@@ -22,9 +23,9 @@ import com.xzit.hms.service.user.UserService;
  * @version V1.0 <br>
  */
 public class UserServiceImpl implements UserService {
-	
+
 	private UserDao userDao = new UserDao();
-	
+
 	@Override
 	public void save() {
 		User user = new User();
@@ -33,19 +34,21 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUser(User user) {
-		Object[] params = {user.getUserName(),user.getPassword()};
+		Object[] params = { user.getUserName(), user.getPassword() };
 		User user0 = null;
-		if(userDao.findEntityByHQL("from User u where u.userName=? and u.password=?", params).get(0) != null) {
+		if (userDao.findEntityByHQL("from User u where u.userName=? and u.password=?", params).get(0) != null) {
 			user0 = userDao.findEntityByHQL("from User u where u.userName=? and u.password=?", params).get(0);
 		}
 		return user0;
 	}
 
+	/**
+	 * queryUsers
+	 */
 	@Override
-	public List<User> queryUsers() {
-		List<User> userList = null;
-		return userList;
+	public PageBean<Map<String, Object>> queryUsers(int pagecode, int pagesize, String queryStr) {
+
+		return userDao.queryUsers(pagecode, pagesize, queryStr);
 	}
-	
-	
+
 }

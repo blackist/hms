@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+
 <div class="am-cf am-padding">
 	<div class="am-fl am-cf">
 		<strong class="am-text-primary am-text-lg">首页</strong> / <small>用户管理</small>
@@ -14,13 +16,7 @@
 					<span class="am-icon-plus"></span> 新增
 				</button>
 				<button type="button" class="am-btn am-btn-default">
-					<span class="am-icon-save"></span> 保存
-				</button>
-				<button type="button" class="am-btn am-btn-default">
-					<span class="am-icon-archive"></span> 审核
-				</button>
-				<button type="button" class="am-btn am-btn-default">
-					<span class="am-icon-trash-o"></span> 删除
+					<span class="am-icon-trash-o"></span> 批量删除
 				</button>
 			</div>
 		</div>
@@ -42,41 +38,38 @@
 					<tr>
 						<th class="table-check"><input type="checkbox" /></th>
 						<th class="table-id">ID</th>
-						<th class="table-title">标题</th>
-						<th class="table-type">类别</th>
-						<th class="table-author am-hide-sm-only">作者</th>
-						<th class="table-date am-hide-sm-only">修改日期</th>
+						<th class="table-title">用户名</th>
+						<th class="table-type">角色</th>
 						<th class="table-set">操作</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td><input type="checkbox" /></td>
-						<td>1</td>
-						<td><a href="#">Business management</a></td>
-						<td>default</td>
-						<td class="am-hide-sm-only">测试1号</td>
-						<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-						<td>
-							<div class="am-btn-toolbar">
-								<div class="am-btn-group am-btn-group-xs">
-									<button
-										class="am-btn am-btn-default am-btn-xs am-text-secondary">
-										<span class="am-icon-pencil-square-o"></span> 编辑
-									</button>
-									<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only">
-										<span class="am-icon-copy"></span> 复制
-									</button>
-									<button
-										class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-										<span class="am-icon-trash-o"></span> 删除
-									</button>
+					<s:iterator value="pb.beanlist" var="user">
+						<tr>
+							<td><input type="checkbox" /></td>
+							<td><s:property value="#user.userId" /></td>
+							<td><a href="#"><s:property value="#user.userName" /></a></td>
+							<td><s:property value="#user.roleName" /></td>
+							<td>
+								<div class="am-btn-toolbar">
+									<div class="am-btn-group am-btn-group-xs">
+										<button
+											class="am-btn am-btn-default am-btn-xs am-text-secondary">
+											<span class="am-icon-pencil-square-o"></span> 编辑
+										</button>
+										<button
+											class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+											<span class="am-icon-trash-o"></span> 删除
+										</button>
+									</div>
 								</div>
-							</div>
-						</td>
-					</tr>
+							</td>
+						</tr>
+					</s:iterator>
 				</tbody>
 			</table>
 		</form>
+		<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
 	</div>
 </div>
+<script src="assets/script/user/user-query.js"></script>
