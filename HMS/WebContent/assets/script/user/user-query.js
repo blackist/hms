@@ -14,5 +14,14 @@ function addUser(){
 	$("#admin-content").load("user/addUser.action");
 }
 
+function deleteUser(id){
+	$.post("user/deleteUser.action", {"userId":id}, function(data) {
+		alert(data);
+		$("#admin-content").html(data);
+	});
+}
+
+
+
 
 

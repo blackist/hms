@@ -10,8 +10,6 @@ package com.xzit.hms.action;
 
 import java.util.Map;
 
-import org.apache.struts2.ServletActionContext;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -34,7 +32,7 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	private Integer pagesize;
 
 	public BaseAction() {
-		request = (Map) ServletActionContext.getRequest();
+		request = (Map) ActionContext.getContext().get("request");
 		session = ActionContext.getContext().getSession();
 		application = ActionContext.getContext().getApplication();
 	}

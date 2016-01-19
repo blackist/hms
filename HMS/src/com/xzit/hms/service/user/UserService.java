@@ -22,7 +22,9 @@ import com.xzit.hms.bean.user.User;
  */
 public interface UserService {
 
-	public void save();
+	public void save(User user);
+	
+	public void delete(User user);
 
 	public User getUser(User user);
 

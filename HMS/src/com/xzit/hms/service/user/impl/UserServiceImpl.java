@@ -27,9 +27,13 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao = new UserDao();
 
 	@Override
-	public void save() {
-		User user = new User();
-		userDao.saveEntity(user);
+	public void save(User user) {
+		// 参数校验
+		if (user != null) {
+			if (user.getUserName() != null && user.getPassword() != null && user.getUserRole() != null) {
+				userDao.saveEntity(user);
+			}
+		}
 	}
 
 	@Override
@@ -52,6 +56,11 @@ public class UserServiceImpl implements UserService {
 			queryStr = "";
 		}
 		return userDao.queryUsers(pagecode, pagesize, queryStr);
+	}
+
+	@Override
+	public void delete(User user) {
+		userDao.deleteEntity(user);
 	}
 
 }

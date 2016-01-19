@@ -8,6 +8,7 @@
 */
 package com.xzit.hms.action.user;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -16,7 +17,10 @@ import org.apache.struts2.convention.annotation.Result;
 
 import com.xzit.hms.action.BaseAction;
 import com.xzit.hms.bean.page.PageBean;
+import com.xzit.hms.bean.role.Role;
 import com.xzit.hms.bean.user.User;
+import com.xzit.hms.service.role.RoleService;
+import com.xzit.hms.service.role.impl.RoleServiceImpl;
 import com.xzit.hms.service.user.UserService;
 import com.xzit.hms.service.user.impl.UserServiceImpl;
 
@@ -32,11 +36,15 @@ public class UserAction extends BaseAction<User> {
 
 	private UserService userService = new UserServiceImpl();
 
+	private RoleService roleService = new RoleServiceImpl();
+
 	private User user = new User();
 
 	private PageBean<Map<String, Object>> pb;
 
 	private String queryStr;
+
+	private List<Role> roleList;
 
 	@Action(value = "/indexUser", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/user/user-index.jsp") })
@@ -54,6 +62,22 @@ public class UserAction extends BaseAction<User> {
 
 	@Action(value = "/addUser", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-add.jsp") })
 	public String addUser() {
+		roleList = roleService.getAllRoles();
+		return SUCCESS;
+	}
+
+	@Action(value = "/addUserSubmit", results = {
+			@Result(name = "success", location = "queryUsers.action", type = "redirect") })
+	public String addUserSubmit() {
+		userService.save(user);
+		return SUCCESS;
+	}
+
+	@Action(value = "/deleteUser", results = {
+			@Result(name = "success", location = "queryUsers.action", type = "redirect") })
+	public String deleteUser() {
+		System.out.println(user.getUserId());
+		userService.delete(user);
 		return SUCCESS;
 	}
 
@@ -92,6 +116,14 @@ public class UserAction extends BaseAction<User> {
 
 	public void setQueryStr(String queryStr) {
 		this.queryStr = queryStr;
+	}
+
+	public List<Role> getRoleList() {
+		return roleList;
+	}
+
+	public void setRoleList(List<Role> roleList) {
+		this.roleList = roleList;
 	}
 
 }
