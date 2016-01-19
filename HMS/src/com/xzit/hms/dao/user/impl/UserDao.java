@@ -39,7 +39,7 @@ public class UserDao extends BaseDaoImpl<User> {
 
 		String sql = "select new map(u.userId as userId, u.userName as userName, r.roleName as roleName) from User u, Role r "
 				+ where;
-		pb.setBeanlist(session.createQuery(sql).setFetchSize((pagecode - 1) * pagesize).setMaxResults(pagesize).list());
+		pb.setBeanlist(session.createQuery(sql).setFirstResult((pagecode - 1) * pagesize).setMaxResults(pagesize).list());
 
 		return pb;
 	}

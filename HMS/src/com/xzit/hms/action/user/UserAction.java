@@ -45,7 +45,8 @@ public class UserAction extends BaseAction<User> {
 	@Action(value = "/queryUsers", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/user/user-query.jsp") })
 	public String queryUsers() {
-		pb = userService.queryUsers(1, 3, "");
+		pb = userService.queryUsers(getPagecode(), getPagesize(), "");
+		System.out.println(pb.toString());
 		return SUCCESS;
 	}
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PageBean<T> {
-	private int pagecode = -1;
+	private int pagecode;
 	private long totalrecards;
 	private int pagesize;
 	private int totalpages;
@@ -38,14 +38,10 @@ public class PageBean<T> {
 			for (int i = (pagecode + 1); i <= (pagecode + pcRange + rightAdd) && i <= totalpages; i++) {
 				pcList.add(i);
 			}
-			System.out.println("ad:" + pcList.size());
 		}
 	}
 
 	public int getPagecode() {
-		if (pagecode < 0) {
-			pagecode = 1;
-		}
 		return pagecode;
 	}
 

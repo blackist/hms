@@ -24,16 +24,40 @@ import com.opensymphony.xwork2.ModelDriven;
  * @version V1.0 <br>
  */
 @SuppressWarnings({ "rawtypes", "serial" })
-public abstract class BaseAction<T> extends ActionSupport implements
-		ModelDriven<T> {
+public abstract class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 
 	protected Map request;
 	protected Map session;
 	protected Map application;
 
+	private Integer pagecode;
+	private Integer pagesize;
+
 	public BaseAction() {
 		request = (Map) ServletActionContext.getRequest();
 		session = ActionContext.getContext().getSession();
 		application = ActionContext.getContext().getApplication();
+	}
+
+	public int getPagecode() {
+		if (pagecode == null) {
+			pagecode = 1;
+		}
+		return pagecode;
+	}
+
+	public void setPagecode(int pagecode) {
+		this.pagecode = pagecode;
+	}
+
+	public Integer getPagesize() {
+		if (pagesize == null) {
+			pagesize = 3;
+		}
+		return pagesize;
+	}
+
+	public void setPagesize(Integer pagesize) {
+		this.pagesize = pagesize;
 	}
 }

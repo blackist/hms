@@ -8,13 +8,13 @@
 		<ul class="am-pagination">
 
 			<li <c:if test="${pb.pagecode<=1}">class="am-disabled"</c:if>><a
-				class="page-indexor" href="javascript:void(0);"
-				<c:if test="${pb.pagecode>1}">value="${page.pagecode-1}"</c:if>>«</a></li>
+				class="page-indexor" href="javascript:;"
+				<c:if test="${pb.pagecode>1}">value="${pb.pagecode-1}"</c:if>>«</a></li>
 
-			<c:forEach items="${pb.pcList}" var="pagecode">
-				<li <c:if test="${pb.pagecode==pagecode}">class="am-active"</c:if>><a
+			<c:forEach items="${pb.pcList}" var="pc">
+				<li <c:if test="${pb.pagecode==pc}">class="am-active"</c:if>><a
 					class="page-indexor" href="javascript:;"
-					<c:if test="${pagecode>-1}">value="${pagecode}"</c:if>>${pagecode}</a></li>
+					<c:if test="${pc>-1}">value="${pc}"</c:if>>${pc}</a></li>
 			</c:forEach>
 
 			<li
