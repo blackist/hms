@@ -28,8 +28,8 @@ import com.xzit.hms.dao.HibernateSessionFactory;
 @SuppressWarnings("unchecked")
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
-	private Session session;
-	private Transaction tr;
+	protected Session session;
+	protected Transaction tr;
 
 	private Class<T> clazz;
 

@@ -38,18 +38,27 @@
 					<tr>
 						<th class="table-check"><input type="checkbox" /></th>
 						<th class="table-id">ID</th>
-						<th class="table-title">用户名</th>
-						<th class="table-type">角色</th>
-						<th class="table-set">操作</th>
+						<th class="table-Name">药品名</th>
+						<th class="table-Type">药品类型</th>
+						<th class="table-Costprice">成本价</th>
+						<th class="table-Price">零售价</th>
+						<th class="table-Count">库存量</th>
+						<th class="table-Produce">产地</th>
+						<th class="table-Lotno">生产批号</th>
 					</tr>
 				</thead>
 				<tbody>
-					<s:iterator value="pb.beanlist" var="user">
+					<s:iterator value="pb.beanlist" var="mediinfo">
 						<tr>
 							<td><input type="checkbox" /></td>
-							<td><s:property value="#user.userId" /></td>
-							<td><a href="#"><s:property value="#user.userName" /></a></td>
-							<td><s:property value="#user.roleName" /></td>
+							<td><s:property value="#mediinfo.MNo" /></td>
+							<td><a href="#"><s:property value="#mediinfo.MName" /></a></td>
+							<td><s:property value="#mediinfo.MType" /></td>
+							<td><s:property value="#mediinfo.MCostprice" /></td>
+							<td><s:property value="#mediinfo.MPrice" /></td>
+							<td><s:property value="#mediinfo.MCount" /></td>
+							<td><s:property value="#mediinfo.MProduce" /></td>
+							<td><s:property value="#mediinfo.MLotno" /></td>
 							<td>
 								<div class="am-btn-toolbar">
 									<div class="am-btn-group am-btn-group-xs">
@@ -72,4 +81,4 @@
 		<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
 	</div>
 </div>
-<script src="assets/script/user/user-query.js"></script>
+<script src="assets/script/mediInfo/mediInfo-query.js"></script>
