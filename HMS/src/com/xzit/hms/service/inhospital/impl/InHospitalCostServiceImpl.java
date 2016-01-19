@@ -14,5 +14,10 @@ public class InHospitalCostServiceImpl implements InHospitalCostService {
 	public PageBean<Map<String, Object>> findCost(Integer pagecode,Integer pagesize,String condidtions) {
 		return inHospCostDao.findCost(pagecode,pagesize,condidtions);
 	}
+
+	@Override
+	public PageBean<Map<String, Object>> findPatient(Integer pagecode,Integer pagesize) {
+		return inHospCostDao.findPatient(pagecode,pagesize);
+	}
 	
 }
