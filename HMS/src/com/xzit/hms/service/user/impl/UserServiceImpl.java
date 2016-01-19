@@ -47,7 +47,10 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public PageBean<Map<String, Object>> queryUsers(int pagecode, int pagesize, String queryStr) {
-
+		// 查询参数校验
+		if (queryStr == null) {
+			queryStr = "";
+		}
 		return userDao.queryUsers(pagecode, pagesize, queryStr);
 	}
 
