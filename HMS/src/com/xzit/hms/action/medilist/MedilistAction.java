@@ -21,23 +21,25 @@ public class MedilistAction extends BaseAction<MediList>{
 	private PageBean<Map<String, Object>> pb;
 	
 	private String queryStr;
+	
 	@Action(value = "/indexMedilist", results = { @Result(name = "success", location = "/WEB-INF/jsp/medilist/medilist-index.jsp") })
 	public String indexMedilist() {
 		return SUCCESS;
 	}
+	
 	@Action(value = "/queryMedilist", results = { @Result(name = "success", location = "/WEB-INF/jsp/medilist/medilist-query.jsp") })
 	public String queryMedilist() {
+		System.out.println(queryStr);
 		pb = medilistservice.queryMedilist(getPagecode(), getPagesize(), queryStr);
-		System.out.println(pb.toString());
 		return SUCCESS;
 	}
 	
-	public medilistService getMedilistservice() {
-		return medilistservice;
+	@Action(value = "/deleteMedilist", results = { @Result(name = "success", location = "queryMedilist.action", type = "redirect") })
+	public String deleteMedilist() {
+		medilistservice.delete(medilist);
+		return SUCCESS;
 	}
-	public void setMedilistservice(medilistService medilistservice) {
-		this.medilistservice = medilistservice;
-	}
+
 	public MediList getMedilist() {
 		return medilist;
 	}
@@ -58,7 +60,6 @@ public class MedilistAction extends BaseAction<MediList>{
 	}
 	@Override
 	public MediList getModel() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

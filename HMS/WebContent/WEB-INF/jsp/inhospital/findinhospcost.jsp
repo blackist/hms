@@ -64,8 +64,8 @@
              	<td><s:property value="#cost.PName"/></td>
              	<td><s:property value="#cost.DName"/></td>
              	<td><s:property value="#cost.BNo"/></td>
-             	<td><s:property value="#cost.ITime"/></td>
-             	<td><s:property value="#cost.OTime"/></td>
+             	<td><s:date name="#cost.ITime" format="yyyy-MM-dd"/></td>
+             	<td><s:date name="#cost.OTime" format="yyyy-MM-dd"/></td>
              	<td><s:property value="#cost.YChange"/></td>
              	<td><s:property value="#cost.sumprice"/></td>
              	<td><s:property value="#cost.total"/></td>

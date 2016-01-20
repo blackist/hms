@@ -37,14 +37,14 @@
         <div class="am-form-group">
             <label for="user-name" class="am-u-sm-3 am-form-label">入院时间 / InHospitalTime ：</label>
             <div class="am-u-sm-9">
-              	<s:property value="costOrder.ITime"/>
+              	<s:date name="costOrder.ITime" format="yyyy-MM-dd"/>
             </div>
        </div>
        <br/>
         <div class="am-form-group">
             <label for="user-name" class="am-u-sm-3 am-form-label">出院时间 / OutHospitalTime ：</label>
             <div class="am-u-sm-9">
-              	<s:property value="costOrder.OTime"/>
+              	<s:date name="costOrder.OTime" format="yyyy-MM-dd"/>
             </div>
        </div>
        <br/>

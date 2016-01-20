@@ -26,11 +26,15 @@ public class medilistServiceImpl implements medilistService {
 	@Override
 	public PageBean<Map<String, Object>> queryMedilist(int pagecode,
 			int pagesize, String queryStr) {
-		// TODO Auto-generated method stub
 		if(queryStr == null){
 			queryStr = "";
 		}
 		return medilistdao.queryMedilist(pagecode, pagesize, queryStr);
+	}
+
+	@Override
+	public void delete(MediList medilist) {
+		medilistdao.deleteEntity(medilist);		
 	}
 
 }

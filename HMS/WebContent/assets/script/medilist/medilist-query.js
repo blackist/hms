@@ -10,3 +10,10 @@ function queryMedilist(pagecode) {
 		$("#admin-content").html(data);
 	});
 }
+
+/*删除药单信息*/
+function deleteMedilist(id){
+	$.post("medilist/deleteMedilist.action", {"medilist.MNo":id}, function(data) {
+		$("#admin-content").html(data);
+	});
+}
