@@ -21,7 +21,7 @@
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">患者信息</div>
 					<div class="am-u-sm-8 am-u-md-4">
 						<select data-am-selected="{btnSize: 'sm'}" class="am-input-sm"
-							name="userRole" id="userRole" required="required">
+							name="PNo" id="PNo" required="required">
 							<option value="">选择患者</option>
 							<s:iterator value="roleList" var="role">
 								<option value="<s:property value='#role.roleId'/>">
@@ -37,8 +37,8 @@
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">主治医生</div>
 					<div class="am-u-sm-8 am-u-md-4">
 						<select data-am-selected="{btnSize: 'sm'}" class="am-input-sm"
-							name="userRole" id="userRole" required="required">
-							<option value="">选择患者</option>
+							name="DNo" id="DNo" required="required">
+							<option value="">选择医生</option>
 							<s:iterator value="roleList" var="role">
 								<option value="<s:property value='#role.roleId'/>">
 									<s:property value="#role.roleName" />
@@ -53,8 +53,8 @@
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">手术类型</div>
 					<div class="am-u-sm-8 am-u-md-4">
 						<select data-am-selected="{btnSize: 'sm'}" class="am-input-sm"
-							name="userRole" id="userRole" required="required">
-							<option value="">选择患者</option>
+							name="operType" id="operType" required="required">
+							<option value="">选择手术类型</option>
 							<s:iterator value="roleList" var="role">
 								<option value="<s:property value='#role.roleId'/>">
 									<s:property value="#role.roleName" />
@@ -70,19 +70,18 @@
 					<div class="am-u-sm-8 am-u-md-4">
 						<div class="am-form-group am-form-icon">
 							<i class="am-icon-calendar"></i> <input type="text"
-								class="am-form-field am-input-sm" placeholder="时间">
+								class="am-form-field am-input-sm" name="operTime">
 						</div>
 					</div>
 					<div class="am-hide-sm-only am-u-md-6">选填</div>
 				</div>
-				
+
 				<div class="am-g am-margin-top">
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">手术描述</div>
 					<div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
 						<textarea rows="" cols="" name="operDesc"></textarea>
 					</div>
 				</div>
-
 
 			</form>
 		</div>

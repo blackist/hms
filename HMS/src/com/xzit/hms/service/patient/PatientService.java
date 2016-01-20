@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.bean.patient.Patient;
-import com.xzit.hms.bean.user.User;
 
 public interface PatientService {
 	public void save(Patient Patient);
@@ -19,7 +18,7 @@ public interface PatientService {
 	
 	public void updatePatient(Patient patient);
 	
-	public List<Patient> queryAllPatients(Patient patient);
+	public List<Patient> queryAllPatients();
 	
 	public void delete(Patient patient);
 }
