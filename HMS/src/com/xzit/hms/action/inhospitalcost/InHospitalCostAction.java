@@ -20,7 +20,6 @@ import com.xzit.hms.service.inhospital.impl.InHospitalCostServiceImpl;
  * @date 2016年1月20日 下午4:02:36
  *
  */
-@SuppressWarnings("unchecked")
 @Namespace("/inhospitalcost")
 public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 

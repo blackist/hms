@@ -153,7 +153,7 @@ public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 		String getOrder = "select new map(p.PName as PName,ip.DName as DName,ihc.BNo as BNo,ip.ITime as ITime,ip.OTime as OTime,ip.YChange as YChange,ml.sumprice as sumprice,ihc.total as total) "
 				+ "from InhospitalCost ihc,Patient p,Inpatient ip,MediList ml "
 				+ "where ihc.PNo=p.PNo and ihc.PNo=ip.PNo and ihc.MNo=ml.MNo and ihc.PNo=?";
-		Map<String, Object> order = (Map)session.createQuery(getOrder).setParameter(0, pno).list().get(0);
+		Map<String, Object> order = (Map<String, Object>)session.createQuery(getOrder).setParameter(0, pno).list().get(0);
 		return order;
 	}
 }
