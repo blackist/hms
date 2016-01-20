@@ -28,48 +28,66 @@
 				<div class="am-g">
 					<div class="am-u-sm-12 am-u-md-4 am-u-md-push-8"></div>
 					<div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
-						<form action="diag/saveDiag.action" method="post">
-							<div class="am-form-group">
-								<label for="user-name" class="am-u-sm-3 am-form-label">诊断日期：</label>
+						<form action="diag/saveDiag.action" method="post" id="diagForm">
 
-								<input name="diagnosticInfo.DDate"></input>
 
-							</div>
-							<div class="am-form-group">
-								<label for="user-email" class="am-u-sm-3 am-form-label">诊断记录：</label>
 
-								<input name="diagnosticInfo.DInfo"></input>
-
-							</div>
-
-							<div class="am-form-group">
-								<label for="user-phone" class="am-u-sm-3 am-form-label">医生姓名：</label>
-
-								<input name="diagnosticInfo.DName"></input>
-
+							<div class="am-g am-margin-top">
+								<div class="am-u-sm-4 am-u-md-2 am-text-right">诊断记录：</div>
+								<div class="am-u-sm-8 am-u-md-4">
+									<input type="text" class="am-input-sm" name="diagnosticInfo.DInfo"
+										id="diagnosticInfo.DInfo" required="required">
+								</div>
+								<div class="am-hide-sm-only am-u-md-6">*必填</div>
 							</div>
 
-							<div class="am-form-group">
-								<label for="user-QQ" class="am-u-sm-3 am-form-label">病人姓名：</label>
-
-								<input name="diagnosticInfo.PName"></input>
-
+							<div class="am-g am-margin-top">
+								<div class="am-u-sm-4 am-u-md-2 am-text-right">医生姓名：</div>
+								<div class="am-u-sm-8 am-u-md-4">
+									<input type="text" class="am-input-sm" name="diagnosticInfo.DName"
+										id="diagnosticInfo.DName" required="required">
+								</div>
+								<div class="am-hide-sm-only am-u-md-6">*必填</div>
 							</div>
 
-							<div class="am-form-group">
-								<label for="user-weibo" class="am-u-sm-3 am-form-label">电子处方：</label>
-
-								<input name="diagnosticInfo.PMnos"></input>
-
+							<div class="am-g am-margin-top">
+								<div class="am-u-sm-4 am-u-md-2 am-text-right">病人姓名：</div>
+								<div class="am-u-sm-8 am-u-md-4">
+									<input type="text" class="am-input-sm" name="diagnosticInfo.PName"
+										id="diagnosticInfo.PName" required="required">
+								</div>
+								<div class="am-hide-sm-only am-u-md-6">*必填</div>
 							</div>
 
-							<div class="am-form-group">
-								<label for="user-intro" class="am-u-sm-3 am-form-label">所属科室：</label>
-
-								<input name="diagnosticInfo.SName"></input>
-
+							<div class="am-g am-margin-top">
+								<div class="am-u-sm-4 am-u-md-2 am-text-right">电子处方：</div>
+								<div class="am-u-sm-8 am-u-md-4">
+									<input type="text" class="am-input-sm" name="diagnosticInfo.PMnos"
+										id="diagnosticInfo.PMnos" required="required">
+								</div>
+								<div class="am-hide-sm-only am-u-md-6">*必填</div>
 							</div>
 
+							<div class="am-g am-margin-top">
+								<div class="am-u-sm-4 am-u-md-2 am-text-right">所属科室：</div>
+								<div class="am-u-sm-8 am-u-md-4">
+									<input type="text" class="am-input-sm" name="diagnosticInfo.SName"
+										id="diagnosticInfo.SName" required="required">
+								</div>
+								<div class="am-hide-sm-only am-u-md-6">*必填</div>
+							</div>
+
+							<div class="am-g am-margin-top">
+								<div class="am-u-sm-4 am-u-md-2 am-text-right">时间：</div>
+								<div class="am-u-sm-8 am-u-md-4">
+									<div class="am-form-group am-form-icon">
+										<i class="am-icon-calendar"></i> <input type="text"
+											class="am-form-field" data-am-datepicker readonly
+											name="diagnosticInfo.DDate" id="DDate">
+									</div>
+								</div>
+								<div class="am-hide-sm-only am-u-md-6"></div>
+							</div>
 							<div class="am-form-group">
 								<div class="am-u-sm-9 am-u-sm-push-3">
 									<input type="submit" class="am-btn am-btn-primary" value="提交诊断"></input>
@@ -96,6 +114,27 @@
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/app.js"></script>
 </body>
+
+<script type="text/javascript">
+	function addDiagSubmit() {
+		// 参数校验
+		var DDate = $("#DDate").val();
+		var DInfo = $("#DInfo").val();
+		var DName = $("#DName").val();
+		var PName = $("#PName").val();
+		var PMnos = $("#PMnos").val();
+		var SName = $("#SName").val();
+		if (DDate != null && DDate != "" && DInfo != null && DInfo != ""
+				&& DName != null && DName != "" && PName != null && PName != ""
+				&& PMnos != "" && PMnos != null && DName != "" && SName != null
+				&& SName != "") {
+			var diagForm = $("#diagForm").serialize();
+			$.post("diag/saveDiag.action", userForm, function(data) {
+				$("#admin-content").html(data);
+			});
+		}
+	}
+</script>
 <script type="text/javascript">
 	$(function() {
 		$("#bar-patient").attr("class",

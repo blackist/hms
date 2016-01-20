@@ -43,23 +43,13 @@
 					</div>
 				</div>
 				<div class="am-u-sm-12 am-u-md-3">
-					<div class="am-form-group">
-						<select data-am-selected="{btnSize: 'sm'}">
-							<option value="option1">所有类别</option>
-							<option value="option2">IT业界</option>
-							<option value="option3">数码产品</option>
-							<option value="option3">笔记本电脑</option>
-							<option value="option3">平板电脑</option>
-							<option value="option3">只能手机</option>
-							<option value="option3">超极本</option>
-						</select>
-					</div>
-				</div>
-				<div class="am-u-sm-12 am-u-md-3">
 					<div class="am-input-group am-input-group-sm">
-						<input type="text" class="am-form-field"> <span
-							class="am-input-group-btn">
-							<button class="am-btn am-btn-default" type="button">搜索</button>
+						<input type="text" class="am-form-field" placeholder="病人姓名 / 主治医师"
+							id="conditions" value="${conditions}"
+							onkeypress="if(event.keyCode==13){search.click();return false;}">
+						<span class="am-input-group-btn">
+							<button class="am-btn am-btn-default" type="button"
+								onclick="javascript:queryDiagCost(1)" id="search">搜索</button>
 						</span>
 					</div>
 				</div>
@@ -72,7 +62,7 @@
 							<thead>
 								<tr>
 									<th class="table-check"><input type="checkbox" /></th>
-									<th class="table-id">挂号单号</th>
+
 									<th class="table-title">诊断日期</th>
 									<th class="table-type">诊断记录</th>
 									<th class="table-author am-hide-sm-only">医生姓名</th>
@@ -84,38 +74,59 @@
 							<tbody>
 								<s:iterator value="pb.beanlist" var="cost">
 									<tr>
-									    <td class="table-check"><input type="checkbox" /></td>
-										<td><s:property value="#cost.RId" /></td>
+										<td class="table-check"><input type="checkbox" /></td>
+
 										<td><s:property value="#cost.DDate" /></td>
 										<td><s:property value="#cost.DInfo" /></td>
 										<td><s:property value="#cost.DName" /></td>
 										<td><s:property value="#cost.PName" /></td>
 										<td><s:property value="#cost.PMnos" /></td>
 										<td><s:property value="#cost.SName" /></td>
-										
+
 									</tr>
 								</s:iterator>
 							</tbody>
+							
 						</table>
-
+						<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
 						<!-- content end -->
 				</div>
 
-				<a href="#" class="am-show-sm-only admin-menu"
-					data-am-offcanvas="{target: '#admin-offcanvas'}"> <span
-					class="am-icon-btn am-icon-th-list"></span>
-				</a>
+			</div>
 
-				<%@ include file="/WEB-INF/jsp/common/footer.jsp"%>
+		</div>
+	</div>
 
-				<script src="assets/js/jquery.min.js"></script>
-				<script src="assets/js/amazeui.min.js"></script>
-				<script src="assets/js/app.js"></script>
+	<a href="#" class="am-show-sm-only admin-menu"
+		data-am-offcanvas="{target: '#admin-offcanvas'}"> <span
+		class="am-icon-btn am-icon-th-list"></span>
+	</a>
+
+	<%@ include file="/WEB-INF/jsp/common/footer.jsp"%>
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/amazeui.min.js"></script>
+	<script src="assets/js/app.js"></script>
 </body>
 <script type="text/javascript">
 	$(function() {
 		$("#bar-patient").attr("class",
-				"am-list am-collapse admin-sidebar-sub am-in");
+		"am-list am-collapse admin-sidebar-sub am-in");
+		_pageIndexBond(queryDiagCost);
 	});
+
+	function getAddpage() {
+		$("#content-box").load("diag/getaddpage.action");
+	}
+
+	function queryDiagCost(pagecode) {
+		var conditions = $("#conditions").val();
+		$.post("diag/queryDiag.action", {
+			"pagecode" : pagecode,
+			"conditions" : conditions
+		}, function(data) {
+			$("#content-box").html(data);
+		});
+	}
 </script>
 </html>

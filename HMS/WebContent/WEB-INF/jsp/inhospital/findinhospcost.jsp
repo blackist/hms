@@ -30,8 +30,8 @@
 		</div>
 		<div class="am-u-sm-12 am-u-md-3">
 			<div class="am-input-group am-input-group-sm">
-				<input type="text" class="am-form-field" placeholder="病人姓名 / 主治医师" id="conditions" value="${conditions}" onkeypress="if(event.keyCode==13){search.click();return false;}"
-				> 
+				<input type="text" class="am-form-field" placeholder="病人姓名 / 主治医师" id="conditions" value="${conditions}" 
+				onkeypress="if(event.keyCode==13){search.click();return false;}"> 
 				<span class="am-input-group-btn">
 					<button class="am-btn am-btn-default" type="button" onclick="javascript:queryInhospCost(1)" id="search">搜索</button>
 				</span>
