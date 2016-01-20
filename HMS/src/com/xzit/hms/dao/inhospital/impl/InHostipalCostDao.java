@@ -6,7 +6,10 @@ import java.util.Map;
 import org.hibernate.Session;
 
 import com.xzit.hms.bean.inhospital.InhospitalCost;
+import com.xzit.hms.bean.inhospital.Inpatient;
+import com.xzit.hms.bean.medicine.MediList;
 import com.xzit.hms.bean.page.PageBean;
+import com.xzit.hms.bean.patient.Patient;
 import com.xzit.hms.dao.HibernateSessionFactory;
 import com.xzit.hms.dao.impl.BaseDaoImpl;
 
@@ -19,7 +22,7 @@ public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 		
 		String getCount = "select count(*) from InhospitalCost ihc,Patient p,Inpatient ip,MediList ml "
 				+ "where ihc.PNo=p.PNo and ihc.PNo=ip.PNo and ihc.MNo=ml.MNo ";
-		String findInfo = "select new map(p.PName as PName,ip.DName as DName,ihc.BNo as BNo,ip.ITime as ITime,ip.OTime as OTime,ip.YChange as YChange,ml.sumprice as sumprice,ihc.total as total)"
+		String findInfo = "select new map(p.PName as PName,ip.DName as DName,ihc.BNo as BNo,ip.ITime as ITime,ip.OTime as OTime,ip.YChange as YChange,ml.sumprice as sumprice,ihc.total as total,ihc.INo as INo)"
 				+ "from InhospitalCost ihc,Patient p,Inpatient ip,MediList ml "
 				+ "where ihc.PNo=p.PNo and ihc.PNo=ip.PNo and ihc.MNo=ml.MNo ";
 		String param = "";
@@ -57,5 +60,35 @@ public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 		pb.setTotalrecards(totalrecords);
 		pb.setBeanlist(costList);
 		return pb;
+	}
+	
+	public Patient getPatientByPno(Integer pno){
+		Session session = HibernateSessionFactory.getSession();
+		String findPatient = "from Patient where PNo=?";
+		Patient patient = (Patient)session.createQuery(findPatient).setParameter(0,pno).list().get(0);
+		return patient;
+	}
+	
+	public Inpatient getInPatientByPno(Integer pno){
+		Session session = HibernateSessionFactory.getSession();
+		String findInPatient = "from Inpatient where PNo=?";
+		Inpatient inpatient = (Inpatient)session.createQuery(findInPatient).setParameter(0,pno).list().get(0);
+		return inpatient;
+	}
+	
+	public MediList getMedilistByMno(Integer mno){
+		Session session = HibernateSessionFactory.getSession();
+		String findMedilist = "from MediList where MNo=?";
+		MediList medilist = (MediList)session.createQuery(findMedilist).setParameter(0,mno).list().get(0);
+		return medilist;
+	}
+	
+	public Map<String, Object> getOrder(Integer pno){
+		Session session = HibernateSessionFactory.getSession();
+		String getOrder = "select new map(p.PName as PName,ip.DName as DName,ihc.BNo as BNo,ip.ITime as ITime,ip.OTime as OTime,ip.YChange as YChange,ml.sumprice as sumprice,ihc.total as total) "
+				+ "from InhospitalCost ihc,Patient p,Inpatient ip,MediList ml "
+				+ "where ihc.PNo=p.PNo and ihc.PNo=ip.PNo and ihc.MNo=ml.MNo and ihc.PNo=?";
+		Map<String, Object> order = (Map)session.createQuery(getOrder).setParameter(0, pno).list().get(0);
+		return order;
 	}
 }

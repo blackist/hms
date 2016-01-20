@@ -28,6 +28,7 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 	private String conditions;
 	private int pagecode;
 	private PageBean<Map<String, Object>> pb;
+	private Map<String, Object> costOrder;
 
 	@Action(value = "getinhosCost", results = { @Result(name = "success", location = "/WEB-INF/jsp/inhospital/inhospitalcost.jsp") })
 	public String getInHosCost() {
@@ -55,7 +56,19 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 		}
 		int pagesize = 8;
 		pb = inHospcostService.findPatient(pagecode,pagesize);
-		System.out.println(pb.toString());
+		return SUCCESS;
+	}
+	
+	@Action(value="addcost",results={ @Result(name = "success", location = "/WEB-INF/jsp/inhospital/costorder.jsp") })
+	public String addCost(){
+		costOrder = inHospcostService.addCost(inHospCost.getPNo(),inHospCost.getBNo(),inHospCost.getMNo());
+		System.out.println(costOrder.toString());
+		return SUCCESS;
+	}
+	
+	@Action(value="deleteorder",results={ @Result(name = "success",type="redirectAction" ,location = "findinhosCost") })
+	public String deleteOrder(){
+		inHospcostService.deleteOrder(inHospCost);
 		return SUCCESS;
 	}
 
@@ -85,5 +98,13 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 
 	public void setConditions(String conditions) {
 		this.conditions = conditions;
+	}
+	
+	public Map<String, Object> getCostOrder() {
+		return costOrder;
+	}
+
+	public void setCostOrder(Map<String, Object> costOrder) {
+		this.costOrder = costOrder;
 	}
 }
