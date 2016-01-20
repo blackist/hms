@@ -11,4 +11,5 @@ public interface DiagService {
 	
 	public PageBean<Map<String, Object>> findCost(Integer pagecode,Integer pagesize,String condidtions);
 
+	public PageBean<Map<String, Object>> queryPay(Integer pagecode,Integer pagesize,String condidtions);
 }

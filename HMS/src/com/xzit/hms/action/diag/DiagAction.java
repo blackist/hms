@@ -30,17 +30,22 @@ public class DiagAction extends BaseAction<DiagnosticInfo> {
 	}
 
 	@Action(value = "/saveDiag", results = {
-			@Result(name = "success", location = "/WEB-INF/jsp/diag/diag-index.jsp"),
-			@Result(name = "input", location = "/WEB-INF/jsp/diag/diag-index.jsp") })
+			@Result(name = "success", location = "/WEB-INF/jsp/diag/diag-pay.jsp"),
+			@Result(name = "input", location = "/WEB-INF/jsp/diag/diag-pay.jsp") })
 	public String saveDiag() {
 		
 		diagService.save(diagnosticInfo);
+		int pagesize = 8;
+		if (condidtions == null || condidtions.trim().isEmpty()) {
+			condidtions = "";
+		}
+		pb = diagService.queryPay(pagecode,
+				pagesize, condidtions);
 		return SUCCESS;
 	}
 
 	@Action(value = "/queryDiag", results = { @Result(name = "success", location = "/WEB-INF/jsp/diag/diag-query.jsp") })
 	public String queryDiag() {
-	
 		if (pagecode == 0) {
 			pagecode = 1;
 		}
@@ -51,7 +56,10 @@ public class DiagAction extends BaseAction<DiagnosticInfo> {
 		pb = diagService.findCost(pagecode,
 				pagesize, condidtions);
 		return SUCCESS;
+		
 	}
+	
+	
 	
 
 	public String getCondidtions() {

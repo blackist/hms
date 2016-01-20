@@ -12,10 +12,7 @@ import com.xzit.hms.dao.impl.BaseDaoImpl;
 
 public class DiagDao extends BaseDaoImpl<DiagnosticInfo>{
 
-	public void findEntityByHQL(DiagnosticInfo diagnosticInfo) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@SuppressWarnings("unchecked")
 	public PageBean<Map<String, Object>> findCost(Integer pagecode,Integer pagesize,String condidtions){
@@ -40,4 +37,29 @@ public class DiagDao extends BaseDaoImpl<DiagnosticInfo>{
 		pb.setBeanlist(costList);
 		return pb;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public PageBean<Map<String, Object>> queryPay(Integer pagecode,Integer pagesize,String condidtions){
+		Session session = HibernateSessionFactory.getSession();
+		PageBean<Map<String, Object>> pb = new PageBean<>();
+		
+		String getCount = "select count(*) from MediInfo medi";
+		String findInfo = "select new map(medi.MName as MName,medi.MPrice as MPrice)"
+				+ "from MediInfo medi";
+		String param = "";
+		if(condidtions!=null && !condidtions.trim().isEmpty()){
+			param = "and p.PName like '%"+condidtions+"%' or ip.DName like '%"+condidtions+"%'";
+		}
+		long totalrecords = (Long)session.createQuery(getCount+param).uniqueResult();
+		List<Map<String, Object>> costList = session.createQuery(findInfo+param)
+											.setFirstResult((pagecode-1)*pagesize)
+											.setMaxResults(pagesize)
+											.list();
+		pb.setPagecode(pagecode);
+		pb.setPagesize(pagesize);
+		pb.setTotalrecards(totalrecords);
+		pb.setBeanlist(costList);
+		return pb;
+	}
+
 }
