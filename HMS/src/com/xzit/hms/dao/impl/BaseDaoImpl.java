@@ -87,5 +87,10 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		}
 		return q.list();
 	}
-
+	
+	public List<T> findAll(){
+		String hql = "from " + clazz.getSimpleName();
+		Query q = session.createQuery(hql);
+		return q.list();
+	}
 }

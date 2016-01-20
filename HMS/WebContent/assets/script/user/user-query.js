@@ -4,8 +4,8 @@ $(function() {
 });
 /*查询用户*/
 function queryUsers(pagecode) {
-	var queryStr = $("#queryStr").val();
-	$.post("user/queryUsers.action", {"pagecode":pagecode,"queryStr":queryStr}, function(data) {
+	var queryPtr = $("#queryPtr").val();
+	$.post("user/queryUsers.action", {"pagecode":pagecode,"queryPtr":queryPtr}, function(data) {
 		$("#admin-content").html(data);
 	});
 }

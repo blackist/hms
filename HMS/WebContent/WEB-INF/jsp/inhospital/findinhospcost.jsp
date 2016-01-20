@@ -13,7 +13,7 @@
 			<strong class="am-text-primary am-text-lg">住院费用</strong> / <small>住院费用查询</small>
 		</div>
 	</div>
-
+	<hr/>
 
 	<div class="am-g">
 		<div class="am-u-sm-12 am-u-md-6">
@@ -64,13 +64,13 @@
              	<td><s:property value="#cost.PName"/></td>
              	<td><s:property value="#cost.DName"/></td>
              	<td><s:property value="#cost.BNo"/></td>
-             	<td><s:property value="#cost.ITime"/></td>
-             	<td><s:property value="#cost.OTime"/></td>
+             	<td><s:date name="#cost.ITime" format="yyyy-MM-dd"/></td>
+             	<td><s:date name="#cost.OTime" format="yyyy-MM-dd"/></td>
              	<td><s:property value="#cost.YChange"/></td>
              	<td><s:property value="#cost.sumprice"/></td>
              	<td><s:property value="#cost.total"/></td>
            	<td>
-           		<button type="button" class="am-btn am-btn-default am-radius am-btn-xs" style="color: red">删除</button></td>
+           		<button type="button" class="am-btn am-btn-default am-radius am-btn-xs" style="color: red" onclick='javascript:delete_order(<s:property value="#cost.INo"/>)'>删除</button></td>
              </tr>
              </s:iterator>
            </tbody>
@@ -94,6 +94,10 @@
 		$.post("inhospitalcost/findinhosCost.action",{"pagecode":pagecode,"conditions":conditions},function(data){
 			$("#content-box").html(data);
 		});
+	}
+	
+	function delete_order(ino){
+		$("#content-box").load("inhospitalcost/deleteorder.action",{"INo":ino});
 	}
 	</script>
 </body>

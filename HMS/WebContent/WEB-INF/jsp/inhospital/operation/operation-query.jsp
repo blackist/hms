@@ -13,7 +13,7 @@
 		<div class="am-btn-toolbar">
 			<div class="am-btn-group am-btn-group-xs">
 				<button type="button" class="am-btn am-btn-default"
-					onclick="addUser()">
+					onclick="addOper()">
 					<span class="am-icon-plus"></span> 新增
 				</button>
 				<button type="button" class="am-btn am-btn-default">
@@ -24,12 +24,12 @@
 	</div>
 	<div class="am-u-sm-12 am-u-md-3">
 		<div class="am-input-group am-input-group-sm">
-			<input id="queryStr" placeholder="用户名/角色" type="text"
+			<input id="queryStr" placeholder="病人姓名/医生姓名/手术描述" type="text"
 				class="am-form-field" value="${queryStr}"
 				onkeypress="if(event.keyCode==13){queryBtn.click();return false;}">
 			<span class="am-input-group-btn" onclick="if()">
 				<button class="am-btn am-btn-default" type="button" id="queryBtn"
-					onclick="queryUsers(1)">搜索</button>
+					onclick="queryOper(1)">搜索</button>
 			</span>
 		</div>
 	</div>
@@ -42,29 +42,37 @@
 					<tr>
 						<th class="table-check"><input type="checkbox" /></th>
 						<th class="table-id">ID</th>
-						<th class="table-title">用户名</th>
-						<th class="table-type">角色</th>
+						<th class="table-title">病人姓名</th>
+						<th class="table-type">医生姓名</th>
+						<th class="table-set">手术时间</th>
+						<th class="table-set">手术类型</th>
+						<th class="table-set">手术描述</th>
+						<th class="table-set">手术结果</th>
 						<th class="table-set">操作</th>
 					</tr>
 				</thead>
 				<tbody>
-					<s:iterator value="pb.beanlist" var="user">
+					<s:iterator value="pb.beanlist" var="oper">
 						<tr>
-							<td><input type="checkbox" /></td>
-							<td><s:property value="#user.userId" /></td>
-							<td><a href="#"><s:property value="#user.userName" /></a></td>
-							<td><s:property value="#user.roleName" /></td>
+							<td><input type="checkbox" name="ids" /></td>
+							<td><s:property value="#oper.id" /></td>
+							<td><s:property value="#oper.PName" /></td>
+							<td><s:property value="#oper.DName" /></td>
+							<td><s:date name="#oper.operTime" format="yy-MM-dd HH:mm:ss" /></td>
+							<td><s:property value="#oper.operType" /></td>
+							<td><s:property value="#oper.operDesc" /></td>
+							<td><s:property value="#oper.operResult" /></td>
 							<td>
 								<div class="am-btn-toolbar">
 									<div class="am-btn-group am-btn-group-xs">
 										<button type="button"
 											class="am-btn am-btn-default am-btn-xs am-text-secondary"
-											onclick="updateUser('<s:property value='#user.userId'/>')">
+											onclick="updateOper('<s:property value='#oper.id'/>')">
 											<span class="am-icon-pencil-square-o"></span> 编辑
 										</button>
 										<button type="button"
 											class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-											onclick="deleteUser('<s:property value='#user.userId'/>')">
+											onclick="deleteOper('<s:property value='#oper.id'/>')">
 											<span class="am-icon-trash-o"></span> 删除
 										</button>
 									</div>
@@ -78,4 +86,4 @@
 		<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
 	</div>
 </div>
-<script src="assets/script/user/user-query.js"></script>
+<script src="assets/script/inhospital/operation/operation-query.js"></script>

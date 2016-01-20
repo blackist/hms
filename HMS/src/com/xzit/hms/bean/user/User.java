@@ -8,6 +8,12 @@ public class User implements java.io.Serializable {
 
 	// Fields
 
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName
+				+ ", password=" + password + ", userRole=" + userRole + "]";
+	}
+
 	/**
 	 * 
 	 */
