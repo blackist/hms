@@ -25,8 +25,12 @@ public interface UserService {
 	public void save(User user);
 	
 	public void delete(User user);
+	
+	public User getUserById(Integer id);
 
 	public User getUser(User user);
+	
+	public void updateUser(User user);
 
 	public PageBean<Map<String, Object>> queryUsers(int pagecode, int pagesize, String queryStr);
 }

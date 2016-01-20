@@ -8,13 +8,7 @@
 		<li><a href="user/indexUser.action" class="am-cf"><span
 				class="am-icon-check"></span> 用户管理</a></li>
 		<li><a href="admin-help.html"><span
-				class="am-icon-puzzle-piece"></span> 帮助页</a></li>
-		<li><a href="admin-gallery.html"><span class="am-icon-th"></span>
-				相册页面</a></li>
-		<li><a href="admin-log.html"><span class="am-icon-calendar"></span>
-				系统日志</a></li>
-		<li><a href="admin-404.html"><span class="am-icon-bug"></span>
-				404</a></li>
+				class="am-icon-puzzle-piece"></span> 权限管理</a></li>
 	</ul></li>
 	
 <script src="assets/script/sidebar/bar-user.js"></script>
