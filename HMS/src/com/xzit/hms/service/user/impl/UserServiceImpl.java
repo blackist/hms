@@ -63,4 +63,14 @@ public class UserServiceImpl implements UserService {
 		userDao.deleteEntity(user);
 	}
 
+	@Override
+	public User getUserById(Integer id) {
+		return userDao.getEntity(id);
+	}
+
+	@Override
+	public void updateUser(User user) {
+		userDao.updateEntity(user);
+	}
+
 }

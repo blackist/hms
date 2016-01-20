@@ -1,6 +1,5 @@
 package com.xzit.hms.service.diag.impl;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 import com.xzit.hms.bean.page.PageBean;

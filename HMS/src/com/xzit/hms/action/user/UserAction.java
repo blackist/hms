@@ -76,8 +76,23 @@ public class UserAction extends BaseAction<User> {
 	@Action(value = "/deleteUser", results = {
 			@Result(name = "success", location = "queryUsers.action", type = "redirect") })
 	public String deleteUser() {
-		System.out.println(user.getUserId());
 		userService.delete(user);
+		return SUCCESS;
+	}
+
+	@Action(value = "/updateUser", results = {
+			@Result(name = "success", location = "/WEB-INF/jsp/user/user-update.jsp") })
+	public String updateUser() {
+		roleList = roleService.getAllRoles();
+		user = userService.getUserById(user.getUserId());
+		return SUCCESS;
+	}
+
+	@Action(value = "/updateUserSubmit", results = {
+			@Result(name = "success", location = "queryUsers.action", type = "redirect") })
+	public String updateUserSubmit() {
+		User user = this.user;
+		userService.updateUser(user);
 		return SUCCESS;
 	}
 
