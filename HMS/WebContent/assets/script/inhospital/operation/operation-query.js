@@ -20,7 +20,7 @@ function deleteOper(id){
 	});
 }
 /*更新用户*/
-function updateUser(id){
+function updateOper(id){
 	$.post("operation/updateOper.action", {"id":id}, function(data){
 		$("#admin-content").html(data);
 	});

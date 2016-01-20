@@ -67,12 +67,12 @@
 									<div class="am-btn-group am-btn-group-xs">
 										<button type="button"
 											class="am-btn am-btn-default am-btn-xs am-text-secondary"
-											onclick="updateUser('<s:property value='#oper.id'/>')">
+											onclick="updateOper('<s:property value='#oper.id'/>')">
 											<span class="am-icon-pencil-square-o"></span> 编辑
 										</button>
 										<button type="button"
 											class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-											onclick="deleteUser('<s:property value='#oper.id'/>')">
+											onclick="deleteOper('<s:property value='#oper.id'/>')">
 											<span class="am-icon-trash-o"></span> 删除
 										</button>
 									</div>

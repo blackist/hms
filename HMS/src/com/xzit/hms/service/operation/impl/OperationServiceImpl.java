@@ -10,6 +10,7 @@ package com.xzit.hms.service.operation.impl;
 
 import java.util.Map;
 
+import com.xzit.hms.bean.inhospital.Operation;
 import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.dao.operation.impl.OperationDao;
 import com.xzit.hms.service.operation.OperationService;
@@ -31,6 +32,25 @@ public class OperationServiceImpl implements OperationService {
 			queryStr = "";
 		}
 		return operationDao.queryOper(pagecode, pagesize, queryStr);
+	}
+
+	@Override
+	public void addOper(Operation operation) {
+		operationDao.saveEntity(operation);
+	}
+
+	@Override
+	public Operation getOperById(Integer id) {
+		// 参数校验
+		if (id == null || id == 0) {
+			return null;
+		}
+		return operationDao.getEntity(id);
+	}
+
+	@Override
+	public void updateOper(Operation operation) {
+		operationDao.updateEntity(operation);
 	}
 
 }
