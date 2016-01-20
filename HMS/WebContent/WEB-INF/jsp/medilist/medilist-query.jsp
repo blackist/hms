@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <div class="am-cf am-padding">
@@ -23,11 +23,11 @@
 	</div>
 	<div class="am-u-sm-12 am-u-md-3">
 		<div class="am-input-group am-input-group-sm">
-			<input id="queryStr" placeholder="药品名/类型" type="text" value="${queryStr}"
+			<input id="queryStr" placeholder="药品名" type="text" value="${queryStr}"
 			 class="am-form-field" onkeypress="if(event.keyCode==13){queryBtn.click();return false;}"> 
 			 <span class="am-input-group-btn" onclick="if()">
 				<button class="am-btn am-btn-default" type="button"
-				id="queryBtn" onclick="queryMediInfo(1)">搜索</button>
+				id="queryBtn" onclick="queryMedilist(1)">搜索</button>
 			</span>
 		</div>
 	</div>
@@ -41,26 +41,26 @@
 						<th class="table-check"><input type="checkbox" /></th>
 						<th class="table-id">ID</th>
 						<th class="table-Name">药品名</th>
-						<th class="table-Type">药品类型</th>
-						<th class="table-Costprice">成本价</th>
-						<th class="table-Price">零售价</th>
-						<th class="table-Count">库存量</th>
-						<th class="table-Produce">产地</th>
-						<th class="table-Lotno">生产批号</th>
+						<th class="table-dName">开药医生</th>
+						<th class="table-pName">病人姓名</th>
+						<th class="table-Quality">数量</th>
+						<th class="table-MPrice">零售价</th>
+						<th class="table-Sumprice">总价</th>
+						<th class="table-isinHos">是否住院</th>
 					</tr>
 				</thead>
 				<tbody>
-					<s:iterator value="pb.beanlist" var="mediinfo">
+					<s:iterator value="pb.beanlist" var="medilist">
 						<tr>
 							<td><input type="checkbox" /></td>
-							<td><s:property value="#mediinfo.MNo" /></td>
-							<td><a href="#"><s:property value="#mediinfo.MName" /></a></td>
-							<td><s:property value="#mediinfo.MType" /></td>
-							<td><s:property value="#mediinfo.MCostprice" /></td>
-							<td><s:property value="#mediinfo.MPrice" /></td>
-							<td><s:property value="#mediinfo.MCount" /></td>
-							<td><s:property value="#mediinfo.MProduce" /></td>
-							<td><s:property value="#mediinfo.MLotno" /></td>
+							<td><s:property value="#medilist.MNo" /></td>
+							<td><a href="#"><s:property value="#medilist.MName" /></a></td>
+							<td><s:property value="#medilist.DName" /></td>
+							<td><s:property value="#medilist.PName" /></td>
+							<td><s:property value="#medilist.MQuantily" /></td>
+							<td><s:property value="#medilist.MPrice" /></td>
+							<td><s:property value="#medilist.sumprice" /></td>
+							<td><s:property value="#medilist.isinHos" /></td>
 							<td>
 								<div class="am-btn-toolbar">
 									<div class="am-btn-group am-btn-group-xs">
@@ -83,4 +83,4 @@
 		<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
 	</div>
 </div>
-<script src="assets/script/mediInfo/mediInfo-query.js"></script>
+<script src="assets/script/medilist/medilist-query.js"></script>

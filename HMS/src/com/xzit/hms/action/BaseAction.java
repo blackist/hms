@@ -10,6 +10,8 @@ package com.xzit.hms.action;
 
 import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -22,10 +24,10 @@ import com.opensymphony.xwork2.ModelDriven;
  * @version V1.0 <br>
  */
 @SuppressWarnings({ "rawtypes", "serial" })
-public abstract class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
+public abstract class BaseAction<T> extends ActionSupport implements ModelDriven<T>,SessionAware {
 
 	protected Map request;
-	protected Map session;
+	Map session;
 	protected Map application;
 
 	private Integer pagecode;
@@ -33,8 +35,11 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 
 	public BaseAction() {
 		request = (Map) ActionContext.getContext().get("request");
-		session = ActionContext.getContext().getSession();
 		application = ActionContext.getContext().getApplication();
+	}
+	
+	public void setSession(Map<String, Object> arg0) {
+		session = arg0;
 	}
 
 	public int getPagecode() {

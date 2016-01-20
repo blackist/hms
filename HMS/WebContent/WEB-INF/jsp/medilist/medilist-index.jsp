@@ -27,7 +27,7 @@
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/amazeui.min.js"></script>
 		<script src="assets/js/app.js"></script>
-		<script src="assets/script/medicine/medicine-index.js"></script>
+		<script src="assets/script/medilist/medilist-index.js"></script>
 </body>
 </html>
     

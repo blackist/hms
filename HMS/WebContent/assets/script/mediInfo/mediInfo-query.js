@@ -5,7 +5,8 @@ $(function() {
 });
 
 function queryMediInfo(pagecode) {
-	$.post("mediInfo/queryMediInfo.action", {"pagecode":pagecode}, function(data) {
+	var queryStr = $("#queryStr").val();
+	$.post("mediInfo/queryMediInfo.action", {"pagecode":pagecode,"queryStr":queryStr}, function(data) {
 		$("#admin-content").html(data);
 	});
 }

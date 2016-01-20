@@ -19,13 +19,15 @@ public class MediInfoAction extends BaseAction<MediInfo>{
 	
 	private PageBean<Map<String, Object>> pb;
 	
+	private String queryStr;
+	
 	@Action(value = "/indexMediInfo", results = { @Result(name = "success", location = "/WEB-INF/jsp/mediInfo/mediInfo-index.jsp") })
 	public String indexMediInfo() {
 		return SUCCESS;
 	}
 	@Action(value = "/queryMediInfo", results = { @Result(name = "success", location = "/WEB-INF/jsp/mediInfo/mediInfo-query.jsp") })
 	public String queryMediInfo() {
-		pb = mediinfoservice.queryMediinfo(getPagecode(), getPagesize(), "");
+		pb = mediinfoservice.queryMediinfo(getPagecode(), getPagesize(), queryStr);
 		System.out.println(pb.toString());
 		return SUCCESS;
 	}
@@ -46,6 +48,12 @@ public class MediInfoAction extends BaseAction<MediInfo>{
 	}
 	public void setPb(PageBean<Map<String, Object>> pb) {
 		this.pb = pb;
+	}
+	public String getQueryStr() {
+		return queryStr;
+	}
+	public void setQueryStr(String queryStr) {
+		this.queryStr = queryStr;
 	}
 	@Override
 	public MediInfo getModel() {

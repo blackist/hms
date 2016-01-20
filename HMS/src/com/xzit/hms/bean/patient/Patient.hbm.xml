@@ -22,5 +22,8 @@
         <property name="PHistory" type="java.lang.String">
             <column name="p_history" length="100" />
         </property>
+        <property name="PRoom" type="java.lang.String">
+            <column name="p_room" length="20" />
+        </property>
     </class>
 </hibernate-mapping>
