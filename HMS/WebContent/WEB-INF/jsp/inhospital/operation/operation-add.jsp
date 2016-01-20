@@ -23,9 +23,9 @@
 						<select data-am-selected="{btnSize: 'sm'}" class="am-input-sm"
 							name="PNo" id="PNo" required="required">
 							<option value="">选择患者</option>
-							<s:iterator value="roleList" var="role">
-								<option value="<s:property value='#role.roleId'/>">
-									<s:property value="#role.roleName" />
+							<s:iterator value="patientList" var="patient">
+								<option value="<s:property value='#patient.PNo'/>">
+									<s:property value="#patient.PName" />
 								</option>
 							</s:iterator>
 						</select>
