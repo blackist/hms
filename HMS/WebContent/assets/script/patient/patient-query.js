@@ -5,13 +5,21 @@ $(function() {
 });
 
 function queryPatients(pagecode) {
-	$.post("patient/queryPatient.action", {"pagecode":pagecode}, function(data) {
+	
+	var queryPtr = $("#queryPtr").val();
+	$.post("patient/queryPatient.action", {"pagecode":pagecode,"queryPtr":queryPtr}, function(data) {
 		$("#admin-content").html(data);
 	});
 }
 
 function revise() {
 	$.post("patient/revisePatient.action",function(data){
+		$("#admin-content").html(data);
+	});
+}
+
+function addyemian() {
+	$.post("patient/addyemianPatient.action",function(data){
 		$("#admin-content").html(data);
 	});
 }

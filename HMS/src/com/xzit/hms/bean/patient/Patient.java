@@ -17,19 +17,27 @@ public class Patient implements java.io.Serializable {
 	private String PSex;
 	private Integer PAge;
 	private String PHistory;
+	private String PRoom;
 
-	// Constructors
+	public String getPRoom() {
+		return PRoom;
+	}
+
+	public void setPRoom(String pRoom) {
+		PRoom = pRoom;
+	}
 
 	/** default constructor */
 	public Patient() {
 	}
 
 	/** full constructor */
-	public Patient(String PName, String PSex, Integer PAge, String PHistory) {
+	public Patient(String PName, String PSex, Integer PAge, String PHistory,String PRoom) {
 		this.PName = PName;
 		this.PSex = PSex;
 		this.PAge = PAge;
 		this.PHistory = PHistory;
+		this.PRoom = PRoom;
 	}
 
 	// Property accessors

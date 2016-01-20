@@ -36,22 +36,37 @@ public class PatientAction extends BaseAction<Patient> {
 
 	private PageBean<Map<String, Object>> pb;
 
-	
-
+	private String queryPtr;
+	//跳转到index界面，在amindcotent中部分刷新要显示的内容
 	@Action(value = "/indexPatient", results = { @Result(name = "success", location = "/WEB-INF/jsp/patient/patient-index.jsp") })
 	public String indexPatient() {
 		return SUCCESS;
 	}
 	
+	//进行查询工作
 	@Action(value = "/queryPatient", results = { @Result(name = "success", location = "/WEB-INF/jsp/patient/patient-query.jsp") })
 	public String queryPatient() {
-		pb = patientService.queryPatients(getPagecode(), getPagesize(), "");
+		pb = patientService.queryPatients(getPagecode(), getPagesize(), queryPtr);//查询方法+分页
 		System.out.println(pb.toString());
 		return SUCCESS;
 	}
 	
+	//修改数据
 	@Action(value = "/revisePatient", results = { @Result(name = "success", location = "/WEB-INF/jsp/patient/patient-revise.jsp") })
 	public String revisePatient() {
+		return SUCCESS;
+	}
+	
+	//挂号
+	@Action(value = "/addyemianPatient", results = { @Result(name = "success", location = "/WEB-INF/jsp/patient/patient-add.jsp") })
+	public String addyemianPatient() {
+		return SUCCESS;
+	}
+	
+	@Action(value = "/addPatient", results = { @Result(name = "success", location = "queryPatient.action", type = "redirect") })
+	public String addPatient() {
+		System.out.println(patient.getPName());
+		patientService.save(patient);
 		return SUCCESS;
 	}
 	
@@ -90,6 +105,14 @@ public class PatientAction extends BaseAction<Patient> {
 
 	public void setPb(PageBean<Map<String, Object>> pb) {
 		this.pb = pb;
+	}
+
+	public String getQueryPtr() {
+		return queryPtr;
+	}
+
+	public void setQueryPtr(String queryPtr) {
+		this.queryPtr = queryPtr;
 	}
 
 
