@@ -13,7 +13,8 @@ public class MediInfoDao extends BaseDaoImpl<MediInfo> {
 		pb.setPagecode(pagecode);
 		pb.setPagesize(pagesize);
 
-		String where = "where (m.MName like '%" + queryStr + "%')";
+		String where = "where (m.MName like '%" + queryStr + "%'or m.MType like '%" + queryStr
+				+ "%')";
 
 		String sqlRows = "select count(*) from MediInfo m " + where;
 		int totalrecards = ((Number) session.createQuery(sqlRows).uniqueResult()).intValue();

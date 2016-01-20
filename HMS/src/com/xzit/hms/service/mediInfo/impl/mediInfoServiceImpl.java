@@ -27,7 +27,9 @@ public class mediInfoServiceImpl implements mediInfoService{
 	@Override
 	public PageBean<Map<String, Object>> queryMediinfo(int pagecode,
 			int pagesize, String queryStr) {
-		// TODO Auto-generated method stub
+		if(queryStr == null){
+			queryStr = "";
+		}
 		return mediinfoDao.queryMediInfo(pagecode, pagesize, queryStr);
 	}
 
