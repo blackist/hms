@@ -34,12 +34,16 @@ public class LoginAction extends BaseAction<User> {
 
 	private User user = new User();
 
-	@Action(value = "", results = { @Result(name = "fail", location = "/login.html"),
+	@Action(value = "login", results = { @Result(name = "fail",type = "redirect" ,location = "/login.html"),
 			@Result(name = "success", location = "index.action", type = "redirect") })
 	public String login() {
 		if (user.getUserName() != null) {
-			userService.getUser(user);
-			return SUCCESS;
+			user = userService.getUser(user);
+			if(user != null){
+				System.out.println(user.toString());
+				session.put("user", user);
+				return SUCCESS;
+			}
 		}
 		return "fail";
 	}

@@ -8,6 +8,7 @@
 */
 package com.xzit.hms.service.user.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import com.xzit.hms.bean.page.PageBean;
@@ -40,8 +41,9 @@ public class UserServiceImpl implements UserService {
 	public User getUser(User user) {
 		Object[] params = { user.getUserName(), user.getPassword() };
 		User user0 = null;
-		if (userDao.findEntityByHQL("from User u where u.userName=? and u.password=?", params).get(0) != null) {
-			user0 = userDao.findEntityByHQL("from User u where u.userName=? and u.password=?", params).get(0);
+		List<User> userlist = userDao.findEntityByHQL("from User u where u.userName=? and u.password=?", params);
+		if(userlist.size()>0){
+			user0 = userlist.get(0);
 		}
 		return user0;
 	}
