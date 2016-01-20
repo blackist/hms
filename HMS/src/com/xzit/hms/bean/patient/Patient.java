@@ -82,4 +82,12 @@ public class Patient implements java.io.Serializable {
 		this.PHistory = PHistory;
 	}
 
+	@Override
+	public String toString() {
+		return "Patient [PNo=" + PNo + ", PName=" + PName + ", PSex=" + PSex
+				+ ", PAge=" + PAge + ", PHistory=" + PHistory + ", PRoom="
+				+ PRoom + "]";
+	}
+	
+
 }

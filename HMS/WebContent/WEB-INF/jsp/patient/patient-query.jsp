@@ -15,19 +15,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="am-u-sm-12 am-u-md-3">
-		<div class="am-form-group">
-			<select data-am-selected="{btnSize: 'sm'}">
-				<option value="option1">所有类别</option>
-				<option value="option2">IT业界</option>
-				<option value="option3">数码产品</option>
-				<option value="option3">笔记本电脑</option>
-				<option value="option3">平板电脑</option>
-				<option value="option3">只能手机</option>
-				<option value="option3">超极本</option>
-			</select>
-		</div>
-	</div>
+	
 	<div class="am-u-sm-12 am-u-md-3">
 		<div class="am-input-group am-input-group-sm">
 			<input id="queryPtr" type="text" class="am-form-field" value="${queryPtr}" >
@@ -68,11 +56,11 @@
 						<td>
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
-									<button onclick = "revise()" type="button"
+									<button onclick="revise('<s:property value='#patient.PNo'/>')" type="button"
 										class="am-btn am-btn-default am-btn-xs am-text-secondary">
 										<span class="am-icon-pencil-square-o"></span> 编辑
 									</button>
-									<button
+									<button onclick="deletepatient('<s:property value='#patient.PNo'/>')" type="button"
 										class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
 										<span class="am-icon-trash-o"></span> 删除
 									</button>

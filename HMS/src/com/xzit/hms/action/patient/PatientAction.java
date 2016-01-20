@@ -54,6 +54,16 @@ public class PatientAction extends BaseAction<Patient> {
 	//修改数据
 	@Action(value = "/revisePatient", results = { @Result(name = "success", location = "/WEB-INF/jsp/patient/patient-revise.jsp") })
 	public String revisePatient() {
+		patient = patientService.getPatientById(patient.getPNo());
+		return SUCCESS;
+	}
+	
+	@Action(value = "/updatePatient", results = { @Result(name = "success", location = "queryPatient.action", type = "redirect")  })
+	public String updatePatient() {
+		Patient patient= this.patient;
+		System.out.println(patient.toString());
+		patientService.updatePatient(patient);
+		
 		return SUCCESS;
 	}
 	
@@ -65,8 +75,13 @@ public class PatientAction extends BaseAction<Patient> {
 	
 	@Action(value = "/addPatient", results = { @Result(name = "success", location = "queryPatient.action", type = "redirect") })
 	public String addPatient() {
-		System.out.println(patient.getPName());
 		patientService.save(patient);
+		return SUCCESS;
+	}
+	
+	@Action(value = "/deletePatient", results = { @Result(name = "success", location = "queryPatient.action", type = "redirect") })
+	public String deletePatient() {
+		patientService.delete(patient);
 		return SUCCESS;
 	}
 	

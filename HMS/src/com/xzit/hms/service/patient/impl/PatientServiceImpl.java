@@ -1,5 +1,6 @@
 package com.xzit.hms.service.patient.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import com.xzit.hms.bean.page.PageBean;
@@ -12,9 +13,9 @@ public class PatientServiceImpl implements PatientService{
 	private PatientDao patientDao = new PatientDao();
 	
 	public void save(Patient patient) {
-		// 对信息保存的判断，为空则不能保存
-		patientDao.saveEntity(patient);
-			
+		// 对信息保存
+		
+		patientDao.saveEntity(patient);	
 	}
 	
 	@Override
@@ -26,11 +27,27 @@ public class PatientServiceImpl implements PatientService{
 	@Override
 	public PageBean<Map<String, Object>> queryPatients(int pagecode,
 			int pagesize, String queryPtr) {
-		// TODO Auto-generated method stub
+		//判断语句，如果搜索栏为空，则让其进行查询全部
 		if(queryPtr==null){
 			queryPtr="";
 		}
 		return patientDao.queryPatients(pagecode, pagesize, queryPtr);
 	}
 	
+	@Override
+	public Patient getPatientById(Integer no) {
+		return patientDao.getEntity(no);
+	}
+
+	public void updatePatient(Patient patient){
+		patientDao.updateEntity(patient);
+	}
+	
+	public void delete(Patient patient) {
+		patientDao.deleteEntity(patient);
+	}
+	
+	public List<Patient> queryAllPatients(Patient patient){
+		
+	}
 }

@@ -33,7 +33,7 @@
 				<div class="am-g am-margin-top-sm">
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">患者年龄</div>
 					<div class="am-u-sm-8 am-u-md-4 am-u-end">
-						<input type="text" class="am-input-sm" name="PAge" id="PAge">
+						<input type="text" class="am-input-sm" name="PAge" id="PAge">请输入1-100的数字
 					</div>
 				</div>
 
@@ -76,9 +76,8 @@
 				&& PAge != null && PAge != "" && PHistory != ""
 				&& PHistory != null && PRoom != "" && PRoom != null) {
 			var patientForm = $("#patientForm").serialize();
-			
+			alert(patientForm);
 			$.post("patient/addPatient.action", patientForm, function(data) {
-				alert("123");
 				$("#admin-content").html(data);
 			});
 		}
