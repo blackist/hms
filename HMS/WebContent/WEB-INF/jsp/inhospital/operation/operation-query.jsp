@@ -54,11 +54,11 @@
 				<tbody>
 					<s:iterator value="pb.beanlist" var="oper">
 						<tr>
-							<td><input type="checkbox" name="ids"/></td>
+							<td><input type="checkbox" name="ids" /></td>
 							<td><s:property value="#oper.id" /></td>
 							<td><s:property value="#oper.PName" /></td>
 							<td><s:property value="#oper.DName" /></td>
-							<td><s:property value="#oper.operTime" /></td>
+							<td><s:date name="#oper.operTime" format="yy-MM-dd HH:mm:ss" /></td>
 							<td><s:property value="#oper.operType" /></td>
 							<td><s:property value="#oper.operDesc" /></td>
 							<td><s:property value="#oper.operResult" /></td>
