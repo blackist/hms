@@ -12,6 +12,14 @@ import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.service.inhospital.InHospitalCostService;
 import com.xzit.hms.service.inhospital.impl.InHospitalCostServiceImpl;
 
+/**
+ * 
+ * @ClassName: InHospitalCostAction
+ * @Description: TODO
+ * @author shen.
+ * @date 2016年1月20日 下午4:02:36
+ *
+ */
 @SuppressWarnings("unchecked")
 @Namespace("/inhospitalcost")
 public class InHospitalCostAction extends BaseAction<InhospitalCost> {
@@ -21,8 +29,14 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 	 */
 	private static final long serialVersionUID = 545309947567610296L;
 
+	/**
+	 * InHospitalCostService
+	 */
 	private InHospitalCostService inHospcostService = new InHospitalCostServiceImpl();
-
+	
+	/**
+	 * InhospitalCost
+	 */
 	private InhospitalCost inHospCost = new InhospitalCost();
 
 	private String conditions;
@@ -30,11 +44,27 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 	private PageBean<Map<String, Object>> pb;
 	private Map<String, Object> costOrder;
 
+	/**
+	 * 
+	 * @Title: getInHosCost 
+	 * @Description: TODO
+	 * @param @return   
+	 * @return String    
+	 * @throws
+	 */
 	@Action(value = "getinhosCost", results = { @Result(name = "success", location = "/WEB-INF/jsp/inhospital/inhospitalcost.jsp") })
 	public String getInHosCost() {
 		return SUCCESS;
 	}
 
+	/**
+	 * 
+	 * @Title: findInHosCost 
+	 * @Description: TODO
+	 * @param @return   
+	 * @return String    
+	 * @throws
+	 */
 	@Action(value = "findinhosCost", results = { @Result(name = "success", location = "/WEB-INF/jsp/inhospital/findinhospcost.jsp") })
 	public String findInHosCost() {
 		if (pagecode == 0) {
@@ -49,6 +79,14 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 
+	 * @Title: getAddPage 
+	 * @Description: TODO
+	 * @param @return   
+	 * @return String    
+	 * @throws
+	 */
 	@Action(value = "getaddpage", results = { @Result(name = "success", location = "/WEB-INF/jsp/inhospital/addcostlist.jsp") })
 	public String getAddPage(){
 		if (pagecode == 0) {
@@ -59,6 +97,14 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 
+	 * @Title: addCost 
+	 * @Description: TODO
+	 * @param @return   
+	 * @return String    
+	 * @throws
+	 */
 	@Action(value="addcost",results={ @Result(name = "success", location = "/WEB-INF/jsp/inhospital/costorder.jsp") })
 	public String addCost(){
 		costOrder = inHospcostService.addCost(inHospCost.getPNo(),inHospCost.getBNo(),inHospCost.getMNo());
@@ -66,6 +112,14 @@ public class InHospitalCostAction extends BaseAction<InhospitalCost> {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 
+	 * @Title: deleteOrder 
+	 * @Description: TODO
+	 * @param @return   
+	 * @return String    
+	 * @throws
+	 */
 	@Action(value="deleteorder",results={ @Result(name = "success",type="redirectAction" ,location = "findinhosCost") })
 	public String deleteOrder(){
 		inHospcostService.deleteOrder(inHospCost);

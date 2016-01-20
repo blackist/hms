@@ -13,9 +13,28 @@ import com.xzit.hms.bean.patient.Patient;
 import com.xzit.hms.dao.HibernateSessionFactory;
 import com.xzit.hms.dao.impl.BaseDaoImpl;
 
+/**
+ * 
+ * @ClassName: InHostipalCostDao
+ * @Description: TODO
+ * @author shen.
+ * @date 2016年1月20日 下午4:08:01
+ *
+ */
+@SuppressWarnings("unchecked")
 public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 	
-	@SuppressWarnings("unchecked")
+	/**
+	 * 
+	 * @Title: findCost 
+	 * @Description: TODO
+	 * @param @param pagecode
+	 * @param @param pagesize
+	 * @param @param condidtions
+	 * @param @return   
+	 * @return PageBean<Map<String,Object>>    
+	 * @throws
+	 */
 	public PageBean<Map<String, Object>> findCost(Integer pagecode,Integer pagesize,String condidtions){
 		Session session = HibernateSessionFactory.getSession();
 		PageBean<Map<String, Object>> pb = new PageBean<>();
@@ -41,6 +60,16 @@ public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 		return pb;
 	}
 	
+	/**
+	 * 
+	 * @Title: findPatient 
+	 * @Description: TODO
+	 * @param @param pagecode
+	 * @param @param pagesize
+	 * @param @return   
+	 * @return PageBean<Map<String,Object>>    
+	 * @throws
+	 */
 	public PageBean<Map<String, Object>> findPatient(Integer pagecode,Integer pagesize){
 		Session session = HibernateSessionFactory.getSession();
 		PageBean<Map<String, Object>> pb = new PageBean<>();
@@ -62,6 +91,15 @@ public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 		return pb;
 	}
 	
+	/**
+	 * 
+	 * @Title: getPatientByPno 
+	 * @Description: TODO
+	 * @param @param pno
+	 * @param @return   
+	 * @return Patient    
+	 * @throws
+	 */
 	public Patient getPatientByPno(Integer pno){
 		Session session = HibernateSessionFactory.getSession();
 		String findPatient = "from Patient where PNo=?";
@@ -69,6 +107,15 @@ public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 		return patient;
 	}
 	
+	/**
+	 * 
+	 * @Title: getInPatientByPno 
+	 * @Description: TODO
+	 * @param @param pno
+	 * @param @return   
+	 * @return Inpatient    
+	 * @throws
+	 */
 	public Inpatient getInPatientByPno(Integer pno){
 		Session session = HibernateSessionFactory.getSession();
 		String findInPatient = "from Inpatient where PNo=?";
@@ -76,6 +123,15 @@ public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 		return inpatient;
 	}
 	
+	/**
+	 * 
+	 * @Title: getMedilistByMno 
+	 * @Description: TODO
+	 * @param @param mno
+	 * @param @return   
+	 * @return MediList    
+	 * @throws
+	 */
 	public MediList getMedilistByMno(Integer mno){
 		Session session = HibernateSessionFactory.getSession();
 		String findMedilist = "from MediList where MNo=?";
@@ -83,6 +139,15 @@ public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 		return medilist;
 	}
 	
+	/**
+	 * 
+	 * @Title: getOrder 
+	 * @Description: TODO
+	 * @param @param pno
+	 * @param @return   
+	 * @return Map<String,Object>    
+	 * @throws
+	 */
 	public Map<String, Object> getOrder(Integer pno){
 		Session session = HibernateSessionFactory.getSession();
 		String getOrder = "select new map(p.PName as PName,ip.DName as DName,ihc.BNo as BNo,ip.ITime as ITime,ip.OTime as OTime,ip.YChange as YChange,ml.sumprice as sumprice,ihc.total as total) "

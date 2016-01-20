@@ -13,6 +13,9 @@ import com.xzit.hms.service.inhospital.InHospitalCostService;
 
 public class InHospitalCostServiceImpl implements InHospitalCostService {
 	
+	/**
+	 *  InHostipalCostDao
+	 */
 	private InHostipalCostDao inHospCostDao = new InHostipalCostDao();
 
 	@Override
