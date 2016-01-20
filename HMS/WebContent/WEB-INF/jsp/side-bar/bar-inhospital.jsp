@@ -7,8 +7,8 @@
 		class="am-icon-angle-right am-fr am-margin-right"></span></a>
 	<ul class="am-list am-collapse admin-sidebar-sub"
 		id="bar-inhospital">
-		<li><a href="admin-user.html" class="am-cf"><span
-				class="am-icon-check"></span> 个人资料<span
+		<li><a href="inhospital/indexinHospital.action" class="am-cf"><span
+				class="am-icon-check"></span> 住院病人管理<span
 				class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 		<li><a href="admin-help.html"><span
 				class="am-icon-puzzle-piece"></span> 帮助页</a></li>

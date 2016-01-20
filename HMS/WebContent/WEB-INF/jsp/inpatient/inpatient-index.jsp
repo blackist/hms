@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <html class="no-js">
 <head>
 <title>Amaze UI Admin index Examples</title>
 <%@ include file="/WEB-INF/jsp/common/meta.jsp"%>
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/common/header.jsp"%>
@@ -34,8 +36,8 @@
 </body>
 <script type="text/javascript">
 $(function(){
-	$("#bar-hospital").attr("class","am-list am-collapse admin-sidebar-sub am-in");
-	$.post("hospital/queryBed.action", function(data){
+	$("#bar-inhospital").attr("class","am-list am-collapse admin-sidebar-sub am-in");
+	$.post("inhospital/queryinpatient.action",function(data){
 		$("#admin-content").html(data);
 	});
 });
