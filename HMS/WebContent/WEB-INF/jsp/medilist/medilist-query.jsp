@@ -4,7 +4,7 @@
 
 <div class="am-cf am-padding">
 	<div class="am-fl am-cf">
-		<strong class="am-text-primary am-text-lg">首页</strong> / <small>用户管理</small>
+		<strong class="am-text-primary am-text-lg">首页</strong> / <small>发药管理</small>
 	</div>
 </div>
 
@@ -13,9 +13,6 @@
 		<div class="am-btn-toolbar">
 			<div class="am-btn-group am-btn-group-xs">
 				<button type="button" class="am-btn am-btn-default">
-					<span class="am-icon-plus"></span> 新增
-				</button>
-				<button type="button" class="am-btn am-btn-default">
 					<span class="am-icon-trash-o"></span> 批量删除
 				</button>
 			</div>
@@ -23,9 +20,9 @@
 	</div>
 	<div class="am-u-sm-12 am-u-md-3">
 		<div class="am-input-group am-input-group-sm">
-			<input id="queryStr" placeholder="药品名" type="text" value="${queryStr}"
+			<input id="queryStr" placeholder="药品名/医生/病人" type="text" value="${queryStr}"
 			 class="am-form-field" onkeypress="if(event.keyCode==13){queryBtn.click();return false;}"> 
-			 <span class="am-input-group-btn" onclick="if()">
+			 <span class="am-input-group-btn">
 				<button class="am-btn am-btn-default" type="button"
 				id="queryBtn" onclick="queryMedilist(1)">搜索</button>
 			</span>
@@ -64,12 +61,9 @@
 							<td>
 								<div class="am-btn-toolbar">
 									<div class="am-btn-group am-btn-group-xs">
-										<button
-											class="am-btn am-btn-default am-btn-xs am-text-secondary">
-											<span class="am-icon-pencil-square-o"></span> 编辑
-										</button>
-										<button
-											class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+										<button type="button"
+											class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
+											onclick="deleteMedilist('<s:property value='#medilist.MNo'/>')">
 											<span class="am-icon-trash-o"></span> 删除
 										</button>
 									</div>

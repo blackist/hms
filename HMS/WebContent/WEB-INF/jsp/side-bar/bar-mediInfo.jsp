@@ -9,13 +9,7 @@
 		<li><a href="mediInfo/indexMediInfo.action" class="am-cf"><span
 				class="am-icon-check"></span>库存查询<span
 				class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-		<li><a href="admin-user.html" class="am-cf"><span
-				class="am-icon-check"></span>新药入库<span
-				class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-		<li><a href="admin-user.html" class="am-cf"><span
-				class="am-icon-check"></span> 药品种类<span
-				class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-		<li><a href="admin-user.html" class="am-cf"><span
+		<li><a href="mediInfo/indexMediInfo.action" class="am-cf"><span
 				class="am-icon-check"></span>药品安全<span
 				class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
 		<li><a href="admin-404.html"><span class="am-icon-bug"></span>
