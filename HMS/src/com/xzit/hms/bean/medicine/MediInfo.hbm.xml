@@ -8,7 +8,7 @@
     <class name="com.xzit.hms.bean.medicine.MediInfo" table="medi_info" catalog="hms">
         <id name="MNo" type="java.lang.Integer">
             <column name="m_no" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="MName" type="java.lang.String">
             <column name="m_name" length="30">

@@ -1,13 +1,12 @@
 package com.xzit.hms.service.inhospital.impl;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import com.xzit.hms.bean.inhospital.InhospitalCost;
 import com.xzit.hms.bean.inhospital.Inpatient;
 import com.xzit.hms.bean.medicine.MediList;
 import com.xzit.hms.bean.page.PageBean;
-import com.xzit.hms.bean.patient.Patient;
+//import com.xzit.hms.bean.patient.Patient;
 import com.xzit.hms.dao.inhospital.impl.InHostipalCostDao;
 import com.xzit.hms.service.inhospital.InHospitalCostService;
 
@@ -30,7 +29,7 @@ public class InHospitalCostServiceImpl implements InHospitalCostService {
 
 	@Override
 	public Map<String, Object> addCost(Integer pno, Integer bno, Integer mno) {
-		Patient patient = inHospCostDao.getPatientByPno(pno);
+//		Patient patient = inHospCostDao.getPatientByPno(pno);
 		Inpatient inpatient = inHospCostDao.getInPatientByPno(pno);
 		MediList medilist = inHospCostDao.getMedilistByMno(mno);
 		InhospitalCost cost = new InhospitalCost();

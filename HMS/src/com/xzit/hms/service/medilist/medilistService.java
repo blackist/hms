@@ -2,11 +2,14 @@ package com.xzit.hms.service.medilist;
 
 import java.util.Map;
 
+import com.xzit.hms.bean.medicine.MediInfo;
 import com.xzit.hms.bean.medicine.MediList;
 import com.xzit.hms.bean.page.PageBean;
 
 public interface medilistService {
 	public void save();
+	
+	public void delete(MediList medilist);
 
 	public MediList getMedilist(MediList medilist);
 

@@ -108,22 +108,7 @@
 
 		$("#bar-patient").attr("class",
 				"am-list am-collapse admin-sidebar-sub am-in");
-		_pageIndexBond(queryDiagCost);
 	});
-
-	function getAddpage() {
-		$("#content-box").load("diag/getaddpage.action");
-	}
-
-	function queryDiagCost(pagecode) {
-		var conditions = $("#conditions").val();
-		$.post("diag/queryPage.action", {
-			"pagecode" : pagecode,
-			"conditions" : conditions
-		}, function(data) {
-			$("#content-box").html(data);
-		});
-	}
 </script>
 
 </html>

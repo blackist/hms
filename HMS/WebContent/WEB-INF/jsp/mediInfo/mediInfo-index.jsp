@@ -17,17 +17,14 @@
 		<!-- content start -->
 		<div class="admin-content" id="admin-content"></div>
 		<!-- content end -->
-
-		<a href="#" class="am-show-sm-only admin-menu"
-			data-am-offcanvas="{target: '#admin-offcanvas'}"> <span
-			class="am-icon-btn am-icon-th-list"></span>
-		</a>
-
+		
 		<%@ include file="/WEB-INF/jsp/common/footer.jsp"%>
+
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/amazeui.min.js"></script>
 		<script src="assets/js/app.js"></script>
 		<script src="assets/script/mediInfo/mediInfo-index.js"></script>
+		
 </body>
 </html>

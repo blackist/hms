@@ -11,10 +11,9 @@
 
 <div class="am-tabs am-margin" data-am-tabs>
 	<ul class="am-tabs-nav am-nav am-nav-tabs">
-		<li class="am-active"><a href="#userform">手术信息</a></li>
+		<li class="am-active"><a href="javascript:;">手术信息</a></li>
 	</ul>
 	<div class="am-tabs-bd">
-
 		<div class="am-tab-panel am-fade am-in am-active" id="userform">
 			<form class="am-form" id="operForm">
 				<div class="am-g am-margin-top">
