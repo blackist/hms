@@ -93,7 +93,8 @@
 					<div class="am-u-sm-8 am-u-md-4">
 						<div class="am-form-group am-form-icon">
 							<i class="am-icon-calendar"></i> <input type="text"
-								class="am-form-field am-input-sm" placeholder="时间">
+								class="am-form-field am-input-sm" data-am-datepicker readonly
+								placeholder="时间">
 						</div>
 					</div>
 					<div class="am-hide-sm-only am-u-md-6">选填</div>
@@ -110,6 +111,7 @@
 		onclick="mediInfo/indexMediInfo.action">放弃保存</button>
 </div>
 
+<script src="assets/js/amazeui.min.js"></script>
 <script type="text/javascript">
 	function addMediInfoSubmit() {
 		// 参数校验

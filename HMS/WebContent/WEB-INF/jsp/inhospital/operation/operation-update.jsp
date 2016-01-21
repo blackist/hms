@@ -40,7 +40,7 @@
 							name="DNo" id="DNo" required="required">
 							<s:iterator value="doctorList" var="doctor">
 								<option value="<s:property value='#doctor.DNo'/>"
-									<s:if test="#patient.DNo == operation.DNo">selected="selected"</s:if>>
+									<s:if test="#doctor.DNo == operation.DNo">selected="selected"</s:if>>
 									<s:property value="#doctor.DName" />
 								</option>
 							</s:iterator>

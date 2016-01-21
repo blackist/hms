@@ -43,7 +43,8 @@ public class OperationDao extends BaseDaoImpl<Operation> {
 				+ where;
 		pb.setBeanlist(
 				session.createQuery(sql).setFirstResult((pagecode - 1) * pagesize).setMaxResults(pagesize).list());
-
+		session.close();
+		
 		return pb;
 	}
 }
