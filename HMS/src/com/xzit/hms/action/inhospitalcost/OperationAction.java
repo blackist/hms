@@ -29,7 +29,7 @@ import com.xzit.hms.service.patient.impl.PatientServiceImpl;
 
 /**
  * @ClassName: OperationAction
- * @Description: TODO
+ * @Description: TODO OperationAction
  * @author Mr.Black
  * @date 2016年1月20日 上午10:48:33
  */
@@ -44,22 +44,48 @@ public class OperationAction extends BaseAction<Operation> {
 
 	private Operation operation = new Operation();
 
+	/**
+	 * queryStr 查询条件
+	 */
 	private String queryStr;
 
+	/**
+	 * 分页对象
+	 */
 	private PageBean<Map<String, Object>> pb;
 
+	/**
+	 * 病人列表
+	 */
 	private List<Patient> patientList;
 
+	/**
+	 * 医生列表
+	 */
 	private List<DoctorInfo> doctorList;
 
 	private static final long serialVersionUID = 4358476360057846940L;
 
+	/**
+	 * @Title: indexOper
+	 * @Description: TODO indexOper
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/indexOper", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/inhospital/operation/operation-index.jsp") })
 	public String indexOper() {
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: queryOper
+	 * @Description: TODO queryOper
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/queryOper", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/inhospital/operation/operation-query.jsp") })
 	public String queryOper() {
@@ -67,6 +93,13 @@ public class OperationAction extends BaseAction<Operation> {
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: addOper
+	 * @Description: TODO addOper
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/addOper", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/inhospital/operation/operation-add.jsp") })
 	public String addOper() {
@@ -75,6 +108,13 @@ public class OperationAction extends BaseAction<Operation> {
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: addOperSubmit
+	 * @Description: TODO addOperSubmit
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/addOperSubmit", results = {
 			@Result(name = "success", location = "queryOper.action", type = "redirect") })
 	public String addOperSubmit() {
@@ -82,6 +122,13 @@ public class OperationAction extends BaseAction<Operation> {
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: updateOper
+	 * @Description: TODO updateOper
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/updateOper", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/inhospital/operation/operation-update.jsp") })
 	public String updateOper() {
@@ -91,6 +138,13 @@ public class OperationAction extends BaseAction<Operation> {
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: updateOperSubmit
+	 * @Description: TODO updateOperSubmit
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/updateOperSubmit", results = {
 			@Result(name = "success", location = "queryOper.action", type = "redirect") })
 	public String updateOperSubmit() {

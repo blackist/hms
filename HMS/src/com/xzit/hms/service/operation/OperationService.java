@@ -21,11 +21,43 @@ import com.xzit.hms.bean.page.PageBean;
  */
 public interface OperationService {
 
+	/**
+	 * @Title: addOper
+	 * @Description: TODO addOper
+	 * @param @param operation   
+	 * @return void 
+	 * @throws
+	 */
 	public void addOper(Operation operation);
 
+	/**
+	 * @Title: getOperById
+	 * @Description: TODO getOperById
+	 * @param @param id
+	 * @param @return   
+	 * @return Operation 
+	 * @throws
+	 */
 	public Operation getOperById(Integer id);
 
+	/**
+	 * @Title: updateOper
+	 * @Description: TODO updateOper
+	 * @param @param operation   
+	 * @return void 
+	 * @throws
+	 */
 	public void updateOper(Operation operation);
 
+	/**
+	 * @Title: queryOper
+	 * @Description: TODO queryOper
+	 * @param @param pagecode
+	 * @param @param pagesize
+	 * @param @param queryStr
+	 * @param @return   
+	 * @return PageBean<Map<String,Object>> 
+	 * @throws
+	 */
 	public PageBean<Map<String, Object>> queryOper(Integer pagecode, Integer pagesize, String queryStr);
 }

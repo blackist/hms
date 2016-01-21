@@ -22,15 +22,62 @@ import com.xzit.hms.bean.user.User;
  */
 public interface UserService {
 
+	/**
+	 * @Title: save
+	 * @Description: TODO save
+	 * @param @param user   
+	 * @return void 
+	 * @throws
+	 */
 	public void save(User user);
 	
+	/**
+	 * @Title: delete
+	 * @Description: TODO delete
+	 * @param @param user   
+	 * @return void 
+	 * @throws
+	 */
 	public void delete(User user);
 	
+	/**
+	 * @Title: getUserById
+	 * @Description: TODO getUserById
+	 * @param @param id
+	 * @param @return   
+	 * @return User 
+	 * @throws
+	 */
 	public User getUserById(Integer id);
 
+	/**
+	 * @Title: getUser
+	 * @Description: TODO getUser
+	 * @param @param user
+	 * @param @return   
+	 * @return User 
+	 * @throws
+	 */
 	public User getUser(User user);
 	
+	/**
+	 * @Title: updateUser
+	 * @Description: TODO updateUser
+	 * @param @param user   
+	 * @return void 
+	 * @throws
+	 */
 	public void updateUser(User user);
 
+	/**
+	 * @Title: queryUsers
+	 * @Description: TODO queryUsers
+	 * @param @param pagecode
+	 * @param @param pagesize
+	 * @param @param queryStr
+	 * @param @return   
+	 * @return PageBean<Map<String,Object>> 
+	 * @throws
+	 */
 	public PageBean<Map<String, Object>> queryUsers(int pagecode, int pagesize, String queryStr);
 }

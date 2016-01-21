@@ -26,7 +26,7 @@ import com.xzit.hms.service.user.impl.UserServiceImpl;
 
 /**
  * @ClassName: UserAction <br>
- * @Description: TODO <br>
+ * @Description: TODO UserAction<br>
  * @author Mr.Black <br>
  * @version V1.0 <br>
  */
@@ -52,6 +52,13 @@ public class UserAction extends BaseAction<User> {
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: queryUsers
+	 * @Description: TODO queryUsers
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/queryUsers", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/user/user-query.jsp") })
 	public String queryUsers() {
@@ -60,12 +67,26 @@ public class UserAction extends BaseAction<User> {
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: addUser
+	 * @Description: TODO addUser
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/addUser", results = { @Result(name = "success", location = "/WEB-INF/jsp/user/user-add.jsp") })
 	public String addUser() {
 		roleList = roleService.getAllRoles();
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: addUserSubmit
+	 * @Description: TODO addUserSubmit
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/addUserSubmit", results = {
 			@Result(name = "success", location = "queryUsers.action", type = "redirect") })
 	public String addUserSubmit() {
@@ -73,6 +94,13 @@ public class UserAction extends BaseAction<User> {
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: deleteUser
+	 * @Description: TODO deleteUser
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/deleteUser", results = {
 			@Result(name = "success", location = "queryUsers.action", type = "redirect") })
 	public String deleteUser() {
@@ -80,6 +108,13 @@ public class UserAction extends BaseAction<User> {
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: updateUser
+	 * @Description: TODO updateUser
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/updateUser", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/user/user-update.jsp") })
 	public String updateUser() {
@@ -88,6 +123,13 @@ public class UserAction extends BaseAction<User> {
 		return SUCCESS;
 	}
 
+	/**
+	 * @Title: updateUserSubmit
+	 * @Description: TODO updateUserSubmit
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/updateUserSubmit", results = {
 			@Result(name = "success", location = "queryUsers.action", type = "redirect") })
 	public String updateUserSubmit() {
