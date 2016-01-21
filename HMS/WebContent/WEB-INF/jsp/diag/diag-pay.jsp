@@ -48,9 +48,7 @@
 					</s:iterator>
 				</tbody>
 			</table>
-			<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
 		</div>
-		<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
 	</div>
 
 	<a href="#" class="am-show-sm-only admin-menu"
