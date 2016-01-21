@@ -8,9 +8,19 @@ import com.xzit.hms.dao.impl.BaseDaoImpl;
 
 public class PatientDao extends BaseDaoImpl<Patient> {
 	@SuppressWarnings({ "unchecked" })
+	/**
+	 * 
+	* @Title: queryPatients 
+	* @Description: 分页方法
+	* @param @param pagecode
+	* @param @param pagesize
+	* @param @param queryPtr
+	* @param @return    
+	* @return PageBean<Map<String,Object>>   
+	* @throws
+	 */
 	public PageBean<Map<String, Object>> queryPatients(int pagecode, int pagesize, String queryPtr) {
 		PageBean<Map<String, Object>> pb = new PageBean<>();
-
 		pb.setPagecode(pagecode);
 		pb.setPagesize(pagesize);
 		//名字的模糊查询

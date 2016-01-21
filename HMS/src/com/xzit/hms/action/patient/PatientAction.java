@@ -1,11 +1,4 @@
-/**  
-* @Title: UserAction.java <br>
-* @Package com.xzit.hms.action.user <br>
-* @Description: TODO <br>
-* @author Mr.Black <br>
-* @date 2016楠烇拷閺堬拷閺冿拷娑撳宕�7:44:06 <br>
-* @version V1.0 <br>
-*/
+
 package com.xzit.hms.action.patient;
 
 import java.util.Map;
@@ -29,7 +22,7 @@ import com.xzit.hms.service.patient.impl.PatientServiceImpl;
 @SuppressWarnings("serial")
 @Namespace("/patient")
 public class PatientAction extends BaseAction<Patient> {
-
+	
 	private PatientService patientService = new PatientServiceImpl();
 
 	private Patient patient = new Patient();
@@ -37,12 +30,27 @@ public class PatientAction extends BaseAction<Patient> {
 	private PageBean<Map<String, Object>> pb;
 
 	private String queryPtr;
-	//跳转到index界面，在amindcotent中部分刷新要显示的内容
+	
+	/**
+	 * 
+	* @Title: indexPatient 
+	* @Description: 跳转到patient-index界面，在amindcotent中部分刷新要显示的内容
+	* @param @return    
+	* @return String   
+	* @throws
+	 */
 	@Action(value = "/indexPatient", results = { @Result(name = "success", location = "/WEB-INF/jsp/patient/patient-index.jsp") })
 	public String indexPatient() {
 		return SUCCESS;
 	}
-	
+	/**
+	 * 
+	* @Title: queryPatient 
+	* @Description: 执行side-bar页面按钮queryPaitnet的方法
+	* @param @return    
+	* @return String   
+	* @throws
+	 */
 	//进行查询工作
 	@Action(value = "/queryPatient", results = { @Result(name = "success", location = "/WEB-INF/jsp/patient/patient-query.jsp") })
 	public String queryPatient() {
@@ -51,6 +59,14 @@ public class PatientAction extends BaseAction<Patient> {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 
+	* @Title: revisePatient 
+	* @Description: 通过query界面上的编辑按钮的revise返回到编辑界面
+	* @param @return    
+	* @return String   
+	* @throws
+	 */
 	//修改数据
 	@Action(value = "/revisePatient", results = { @Result(name = "success", location = "/WEB-INF/jsp/patient/patient-revise.jsp") })
 	public String revisePatient() {
@@ -58,6 +74,14 @@ public class PatientAction extends BaseAction<Patient> {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 
+	* @Title: updatePatient 
+	* @Description: 编辑界面上的updateSubmit按钮指向此方法，进行更新操作
+	* @param @return    
+	* @return String   
+	* @throws
+	 */
 	@Action(value = "/updatePatient", results = { @Result(name = "success", location = "queryPatient.action", type = "redirect")  })
 	public String updatePatient() {
 		Patient patient= this.patient;
@@ -67,25 +91,56 @@ public class PatientAction extends BaseAction<Patient> {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 
+	* @Title: addyemianPatient 
+	* @Description: 新增一个病人，此为界面上的新增按钮跳转方法
+	* @param @return    
+	* @return String   
+	* @throws
+	 */
 	//挂号
 	@Action(value = "/addyemianPatient", results = { @Result(name = "success", location = "/WEB-INF/jsp/patient/patient-add.jsp") })
 	public String addyemianPatient() {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 
+	* @Title: addPatient 
+	* @Description: 按钮确认提交进行此方法，进行向数据库的添加操作
+	* @param @return    
+	* @return String   
+	* @throws
+	 */
 	@Action(value = "/addPatient", results = { @Result(name = "success", location = "queryPatient.action", type = "redirect") })
 	public String addPatient() {
 		patientService.save(patient);
 		return SUCCESS;
 	}
 	
+	/**
+	 * 
+	* @Title: deletePatient 
+	* @Description: 通过页面上的deletePatient传过来的ID参数，进行删除操作
+	* @param @return    
+	* @return String   
+	* @throws
+	 */
 	@Action(value = "/deletePatient", results = { @Result(name = "success", location = "queryPatient.action", type = "redirect") })
 	public String deletePatient() {
 		patientService.delete(patient);
 		return SUCCESS;
 	}
 	
-
+	/**
+	 * 
+	* @Title: getPatientService 
+	* @Description: 底下都没set get方法
+	* @param @return    
+	* @return PatientService   
+	* @throws
+	 */
 	public PatientService getPatientService() {
 		return patientService;
 	}
@@ -99,7 +154,9 @@ public class PatientAction extends BaseAction<Patient> {
 	}
 
 
-
+	/**
+	 * ModelDriven方法
+	 */
 	@Override
 	public Patient getModel() {
 		// TODO Auto-generated method stub

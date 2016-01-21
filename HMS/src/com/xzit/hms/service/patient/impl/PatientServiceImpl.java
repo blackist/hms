@@ -11,7 +11,9 @@ import com.xzit.hms.service.patient.PatientService;
 
 public class PatientServiceImpl implements PatientService{
 	private PatientDao patientDao = new PatientDao();
-	
+	/**
+	 * 调用patientDao方法中的saveEntity方法 保存新增病人（挂号）
+	 */
 	public void save(Patient patient) {
 		// 对信息保存
 		
@@ -23,7 +25,11 @@ public class PatientServiceImpl implements PatientService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	/**
+	 * 分页函数的调用
+	 */
+	
 	@Override
 	public PageBean<Map<String, Object>> queryPatients(int pagecode,
 			int pagesize, String queryPtr) {
@@ -48,6 +54,6 @@ public class PatientServiceImpl implements PatientService{
 	}
 	
 	public List<Patient> queryAllPatients(Patient patient){
-		
+		return patientDao.findAll();
 	}
 }
