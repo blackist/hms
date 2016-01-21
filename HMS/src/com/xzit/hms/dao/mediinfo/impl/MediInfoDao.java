@@ -5,7 +5,13 @@ import java.util.Map;
 import com.xzit.hms.bean.medicine.MediInfo;
 import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.dao.impl.BaseDaoImpl;
-
+/**
+ * 
+ * @ClassName: MediInfoDao
+ * @Description: TODO MediInfoDao
+ * @author QinChong
+ * @date 2016年1月21日 下午1:42:20
+ */
 public class MediInfoDao extends BaseDaoImpl<MediInfo> {
 	public PageBean<Map<String, Object>> queryMediInfo(int pagecode, int pagesize, String queryStr) {
 		PageBean<Map<String, Object>> pb = new PageBean<>();
