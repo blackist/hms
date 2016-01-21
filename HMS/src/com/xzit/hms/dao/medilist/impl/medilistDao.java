@@ -5,11 +5,20 @@ import java.util.Map;
 import com.xzit.hms.bean.medicine.MediList;
 import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.dao.impl.BaseDaoImpl;
-
+/**
+ * 
+ * @ClassName: medilistDao
+ * @Description: TODO
+ * @author QinChong
+ * @date 2016年1月21日 下午1:43:07
+ */
 public class medilistDao extends BaseDaoImpl<MediList> {
 	@SuppressWarnings("unchecked")
 	public PageBean<Map<String, Object>> queryMedilist(int pagecode,
 			int pagesize, String queryStr) {
+		/**
+		 * pb 当前页
+		 */
 		PageBean<Map<String, Object>> pb = new PageBean<>();
 
 		pb.setPagecode(pagecode);

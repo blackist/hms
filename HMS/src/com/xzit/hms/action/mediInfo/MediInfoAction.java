@@ -11,6 +11,13 @@ import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.service.mediInfo.mediInfoService;
 import com.xzit.hms.service.mediInfo.impl.mediInfoServiceImpl;
 
+/**
+ * 
+ * @ClassName: MediInfoAction
+ * @Description: TODO 药库信息
+ * @author QinChong
+ * @date 2016年1月21日 下午1:35:36
+ */
 @SuppressWarnings("serial")
 public class MediInfoAction extends BaseAction<MediInfo> {
 	
@@ -20,13 +27,31 @@ public class MediInfoAction extends BaseAction<MediInfo> {
 
 	private PageBean<Map<String, Object>> pb;
 
+	/**
+	 * queryStr
+	 */
 	private String queryStr;
 
+	/**
+	 * 
+	 * @Title: indexMediInfo
+	 * @Description: TODO indexMediInfo
+	 * @param @return   
+	 * @return String 
+	 * @throws
+	 */
 	@Action(value = "/indexMediInfo", results = { @Result(name = "success", location = "/WEB-INF/jsp/mediInfo/mediInfo-index.jsp") })
 	public String indexMediInfo() {
 		return SUCCESS;
 	}
-
+/**
+ * 
+ * @Title: queryMediInfo
+ * @Description: TODO queryMediInfo
+ * @param @return   
+ * @return String 
+ * @throws
+ */
 	@Action(value = "/queryMediInfo", results = { @Result(name = "success", location = "/WEB-INF/jsp/mediInfo/mediInfo-query.jsp") })
 	public String queryMediInfo() {
 		pb = mediinfoservice.queryMediinfo(getPagecode(), getPagesize(),
@@ -34,34 +59,68 @@ public class MediInfoAction extends BaseAction<MediInfo> {
 		System.out.println(pb.toString());
 		return SUCCESS;
 	}
-
+/**
+ * 
+ * @Title: addMediInfo
+ * @Description: TODO addMediInfo
+ * @param @return   
+ * @return String 
+ * @throws
+ */
 	@Action(value = "/addMediInfo", results = { @Result(name = "success", location = "/WEB-INF/jsp/mediInfo/mediInfo-add.jsp") })
 	public String addMediInfo() {
 		return SUCCESS;
 	}
-
+/**
+ * 
+ * @Title: addMediInfoSubmit
+ * @Description: TODO addMediInfoSubmit
+ * @param @return   
+ * @return String 
+ * @throws
+ */
 	@Action(value = "/addMediInfoSubmit", results = { @Result(name = "success", location = "queryMediInfo.action", type = "redirect") })
 	public String addMediInfoSubmit() {
 		mediinfoservice.save(mediinfo);
 		return SUCCESS;
 	}
-
+/**
+ * 
+ * @Title: deleteMediInfo
+ * @Description: TODO deleteMediInfo
+ * @param @return   
+ * @return String 
+ * @throws
+ */
 	@Action(value = "/deleteMediInfo", results = { @Result(name = "success", location = "queryMediInfo.action", type = "redirect") })
 	public String deleteMediInfo() {
 		mediinfoservice.delete(mediinfo);
 		return SUCCESS;
 	}
-
+/**
+ * 
+ * @Title: updateMediInfo
+ * @Description: TODO updateMediInfo
+ * @param @return   
+ * @return String 
+ * @throws
+ */
 	@Action(value = "/updateMediInfo", results = { @Result(name = "success", location = "/WEB-INF/jsp/mediInfo/mediInfo-update.jsp") })
 	public String updateMediInfo() {
 		mediinfo = mediinfoservice.getMediInfoById(mediinfo.getMNo());
 		return SUCCESS;
 	}
-
+/**
+ * 
+ * @Title: updateMediInfoSubmit
+ * @Description: TODO updateMediInfoSubmit
+ * @param @return   
+ * @return String 
+ * @throws
+ */
 	@Action(value = "/updateMediInfoSubmit", results = { @Result(name = "success", location = "queryMediInfo.action", type = "redirect") })
 	public String updateMediInfoSubmit() {
 		MediInfo mediinfo = this.mediinfo;
-		System.out.println(mediinfo.getMNo());
 		mediinfoservice.updateMediInfo(mediinfo);
 		return SUCCESS;
 	}
@@ -97,7 +156,9 @@ public class MediInfoAction extends BaseAction<MediInfo> {
 	public void setQueryStr(String queryStr) {
 		this.queryStr = queryStr;
 	}
-
+/**
+ * getModel
+ */
 	@Override
 	public MediInfo getModel() {
 		return mediinfo;

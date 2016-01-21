@@ -78,7 +78,7 @@ public class InHostipalCostDao extends BaseDaoImpl<InhospitalCost>{
 				+ "where ip.PNo not in (select ihc.PNo from InhospitalCost ihc)";
 		String findPatient = "select new map(ip.PNo as PNo,ip.BNo as BNo,ml.MNo as MNo,p.PName as PName,ip.DName as DName) "
 				+ "from Patient p,Inpatient ip,MediList ml "
-				+ "where ip.PNo not in (select ihc.PNo from InhospitalCost ihc) and ip.PNo = p.PNo and p.PName = ml.PName";
+				+ "where ip.PNo not in (select ihc.PNo from InhospitalCost ihc) and ip.PNo = p.PNo and p.PNo = ml.PName";
 		long totalrecords = (Long)session.createQuery(getCount).uniqueResult();
 		List<Map<String, Object>> costList = session.createQuery(findPatient)
 				.setFirstResult((pagecode-1)*pagesize)
