@@ -1,23 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+
 <div class="am-u-sm-12 am-u-md-3">
 		<div class="am-input-group am-input-group-sm">
-			<input type="text" class="am-form-field"> <span
+			<input type="text" class="am-form-field" id="condidtions" value="${condidtions}" onkeypress="if(event.keyCode==13){search.click();return false;}"> <span
 				class="am-input-group-btn">
-				<button class="am-btn am-btn-default" type="button">搜索</button>
+				<button class="am-btn am-btn-default" type="button" onclick="javascript:queryBed(1)" id="search">搜索</button>
 			</span>
 		</div>
 </div>
 <div class="am-g">
+		<div class="am-u-sm-12 am-u-md-6">
+			<div class="am-btn-toolbar">
+				<div class="am-btn-group am-btn-group-xs">
+					<button type="button" class="am-btn am-btn-default" onclick="javascript:getaddbed(1)">
+						<span class="am-icon-plus"></span> 新增
+					</button>
+					
+				</div>
+			</div>
+		</div></div>
+<div class="am-g">
       <div class="am-u-sm-12">
+            <form class="am-form">
         <table class="am-table am-table-bd am-table-striped admin-content-table">
           <thead>
           <tr>
@@ -30,9 +36,9 @@
             <td>
                <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
-                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 新增</button>
-                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 修改</button>
-                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+
+                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="updatebed('<s:property value='#bed.bno'/>')"><span class="am-icon-copy"></span> 修改</button>
+                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="deletebed('<s:property value='#bed.bno'/>')"><span class="am-icon-trash-o"></span> 删除</button>
                   </div>
                 </div>
             </td>
@@ -40,7 +46,34 @@
           </s:iterator>
           </tbody>
         </table>
+        </form>
+        <%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
       </div>
     </div>
-   </body>
-</html>
+    <script type="text/javascript">
+	$(function(){
+		_pageIndexBond(queryinpatient);
+	});
+	
+	 function getaddbed(){
+		 $.post("hospital/getaddbed.action",function(data){
+				$("#admin-content").html(data);
+			});
+	}
+	 function deletebed(id){
+			$.post("hospital/deletebed.action", {"bed.BNo":id}, function(data) {
+				$("#admin-content").html(data);
+			});
+		}
+	 function updatebed(bno){
+			$.post("hospital/updatebed.action", {"bed.BNo":bno}, function(data) {
+				$("#admin-content").html(data);
+			});
+		}
+	function queryBed(pagecode){
+		var condidtions = $("#condidtions").val();
+		$.post("hospital/queryBed.action", function(data){
+			$("#admin-content").html(data);
+		});
+	}
+	</script>
