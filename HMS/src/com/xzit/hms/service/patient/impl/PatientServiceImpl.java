@@ -5,17 +5,16 @@ import java.util.Map;
 
 import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.bean.patient.Patient;
-import com.xzit.hms.bean.user.User;
 import com.xzit.hms.dao.patient.PatientDao;
 import com.xzit.hms.service.patient.PatientService;
 
 public class PatientServiceImpl implements PatientService{
 	private PatientDao patientDao = new PatientDao();
 	/**
-	 * µ÷ÓÃpatientDao·½·¨ÖĞµÄsaveEntity·½·¨ ±£´æĞÂÔö²¡ÈË£¨¹ÒºÅ£©
+	 * è°ƒç”¨patientDaoæ–¹æ³•ä¸­çš„saveEntityæ–¹æ³• ä¿å­˜æ–°å¢ç—…äººï¼ˆæŒ‚å·ï¼‰
 	 */
 	public void save(Patient patient) {
-		// ¶ÔĞÅÏ¢±£´æ
+		// é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·æ¯é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
 		
 		patientDao.saveEntity(patient);	
 	}
@@ -27,13 +26,13 @@ public class PatientServiceImpl implements PatientService{
 	}
 	
 	/**
-	 * ·ÖÒ³º¯ÊıµÄµ÷ÓÃ
+	 * åˆ†é¡µå‡½æ•°çš„è°ƒç”¨
 	 */
 	
 	@Override
 	public PageBean<Map<String, Object>> queryPatients(int pagecode,
 			int pagesize, String queryPtr) {
-		//ÅĞ¶ÏÓï¾ä£¬Èç¹ûËÑË÷À¸Îª¿Õ£¬ÔòÈÃÆä½øĞĞ²éÑ¯È«²¿
+		//é”Ÿå«è®¹æ‹·é”Ÿæ–¤æ‹·æ´Œî„Šæ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·ä¸ºé”Ÿç§¸ï½æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·èƒé”Ÿçª–î‡½î‚¬æ‹·é”Ÿï¿½
 		if(queryPtr==null){
 			queryPtr="";
 		}
@@ -53,7 +52,7 @@ public class PatientServiceImpl implements PatientService{
 		patientDao.deleteEntity(patient);
 	}
 	
-	public List<Patient> queryAllPatients(Patient patient){
+	public List<Patient> queryAllPatients(){
 		return patientDao.findAll();
 	}
 }

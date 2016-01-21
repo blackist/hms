@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.bean.patient.Patient;
-import com.xzit.hms.bean.user.User;
 
 /**
  * 
@@ -81,7 +80,8 @@ public interface PatientService {
 	* @return List<Patient>   
 	* @throws
 	 */
-	public List<Patient> queryAllPatients(Patient patient);
+
+	public List<Patient> queryAllPatients();
 	
 	/**
 	 * 删除的底层调用

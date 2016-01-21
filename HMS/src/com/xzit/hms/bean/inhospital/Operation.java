@@ -96,5 +96,11 @@ public class Operation implements java.io.Serializable {
 	public void setOperResult(String operResult) {
 		this.operResult = operResult;
 	}
+	
+	@Override
+	public String toString() {
+		return "Operation [id=" + id + ", PNo=" + PNo + ", DNo=" + DNo + ", operType=" + operType + ", operTime="
+				+ operTime + ", operDesc=" + operDesc + ", operResult=" + operResult + "]";
+	}
 
 }

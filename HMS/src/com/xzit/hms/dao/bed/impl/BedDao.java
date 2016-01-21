@@ -18,11 +18,11 @@ public class BedDao extends BaseDaoImpl<Bed> {
 		PageBean<Map<String, Object>> pb = new PageBean<>();
 		
 		String getCount = "select count(*) from Bed b ";
-		String findInfo = "select new map(b.BNo as bno,b.BSta as bst,b.BTy as bty)"
+		String findInfo = "select new map(b.BNo as bno,b.BSta as bst,b.BTy as bty) "
 				+ "from Bed b ";
 		String param = "";
 		if(condidtions!=null && !condidtions.trim().isEmpty()){
-			param = "and b.BSta like '%"+condidtions+"%' or b.BTy like '%"+condidtions+"%'";
+			param = " ( b.BSta like '%"+condidtions+"%' or b.BTy like '%"+condidtions+"%' ) ";
 		}
 		long totalrecords = (Long)session.createQuery(getCount+param).uniqueResult();
 		List<Map<String, Object>> costList = session.createQuery(findInfo+param)

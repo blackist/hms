@@ -69,7 +69,7 @@ ul {
 .admin-content {
   width: auto;
   overflow: hidden;
-  height: 100%;
+  height: auto;
   background: #fff;
 }
 
@@ -323,7 +323,7 @@ gallery.html css
 
 
 /*
- fixed-layout 固定头部和边栏布局
+ fixed-layout 鍥哄畾澶撮儴鍜岃竟鏍忓竷灞�
 */
 
 .fixed-layout,

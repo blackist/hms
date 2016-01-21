@@ -64,16 +64,6 @@
 					</div>
 				</div>
 
-				<div class="am-g am-margin-top">
-					<div class="am-u-sm-4 am-u-md-2 am-text-right">发布时间</div>
-					<div class="am-u-sm-8 am-u-md-4">
-						<div class="am-form-group am-form-icon">
-							<i class="am-icon-calendar"></i> <input type="text"
-								class="am-form-field am-input-sm" placeholder="时间">
-						</div>
-					</div>
-					<div class="am-hide-sm-only am-u-md-6">选填</div>
-				</div>
 			</form>
 		</div>
 	</div>

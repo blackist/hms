@@ -35,7 +35,7 @@
 	$(function() {
 		$("#bar-operation").attr("class",
 				"am-list am-collapse admin-sidebar-sub am-in");
-		$("#admin-content").load("inhospitalcost/findinhosCost.action");
+		$("#admin-content").load("operation/queryOper.action");
 	});
 </script>
 </html>

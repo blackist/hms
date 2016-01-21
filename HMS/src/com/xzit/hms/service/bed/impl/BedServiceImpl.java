@@ -1,5 +1,6 @@
 package com.xzit.hms.service.bed.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import com.xzit.hms.bean.inhospital.Bed;
@@ -13,6 +14,31 @@ public class BedServiceImpl implements BedService {
 	@Override
 	public PageBean<Map<String, Object>> findBed(Integer pagecode,Integer pagesize,String condidtions) {
 		return bedDao.findBed(pagecode,pagesize,condidtions);
+	}
+
+	@Override
+	public List<Bed> findAll() {
+		return bedDao.findAll();
+	}
+
+	@Override
+	public void addbed(Bed bed) {
+		bedDao.saveEntity(bed);
+		
+	}
+
+	public void delete(Bed bed) {
+		bedDao.deleteEntity(bed);
+	}
+
+	@Override
+	public Bed getBedById(Integer bNo) {
+		return bedDao.getEntity(bNo);
+	}
+
+
+	public void updateBed(Bed bed) {
+	   bedDao.updateEntity(bed);
 	}
 	
 }

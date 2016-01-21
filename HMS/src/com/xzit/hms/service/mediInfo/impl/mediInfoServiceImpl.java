@@ -10,10 +10,16 @@ import com.xzit.hms.service.mediInfo.mediInfoService;
 public class mediInfoServiceImpl implements mediInfoService{
 
 	private MediInfoDao mediinfoDao=new MediInfoDao();
-	@Override
-	public void save() {
-		// TODO Auto-generated method stub
-		MediInfo mediinfo=new MediInfo();
+	
+	public void save(MediInfo mediinfo) {
+		//参数的校验
+		/*if(mediinfo!=null){
+			if (mediinfo.getMNo() != null && mediinfo.getMName() != null && mediinfo.getMType() != null
+					&& mediinfo.getMCostprice() != null&& mediinfo.getMPrice() != null&& mediinfo.getMCount() != null
+					&& mediinfo.getMProduce() != null&& mediinfo.getMLotno() != null) {			
+			}
+		}*/
+		System.out.println(mediinfo.toString());
 		mediinfoDao.saveEntity(mediinfo);
 	}
 
@@ -31,6 +37,22 @@ public class mediInfoServiceImpl implements mediInfoService{
 			queryStr = "";
 		}
 		return mediinfoDao.queryMediInfo(pagecode, pagesize, queryStr);
+	}
+
+	@Override
+	public void delete(MediInfo mediinfo) {
+		mediinfoDao.deleteEntity(mediinfo);
+	}
+
+	@Override
+	public MediInfo getMediInfoById(Integer id) {
+		// TODO Auto-generated method stub
+		return mediinfoDao.getEntity(id);
+	}
+
+	@Override
+	public void updateMediInfo(MediInfo mediinfo) {
+		mediinfoDao.updateEntity(mediinfo);
 	}
 
 }

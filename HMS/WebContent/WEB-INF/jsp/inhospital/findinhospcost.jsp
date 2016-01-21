@@ -30,8 +30,8 @@
 		</div>
 		<div class="am-u-sm-12 am-u-md-3">
 			<div class="am-input-group am-input-group-sm">
-				<input type="text" class="am-form-field" placeholder="病人姓名 / 主治医师" id="conditions" value="${conditions}" onkeypress="if(event.keyCode==13){search.click();return false;}"
-				> 
+				<input type="text" class="am-form-field" placeholder="病人姓名 / 主治医师" id="conditions" value="${conditions}" 
+				onkeypress="if(event.keyCode==13){search.click();return false;}"> 
 				<span class="am-input-group-btn">
 					<button class="am-btn am-btn-default" type="button" onclick="javascript:queryInhospCost(1)" id="search">搜索</button>
 				</span>
@@ -64,8 +64,8 @@
              	<td><s:property value="#cost.PName"/></td>
              	<td><s:property value="#cost.DName"/></td>
              	<td><s:property value="#cost.BNo"/></td>
-             	<td><s:property value="#cost.ITime"/></td>
-             	<td><s:property value="#cost.OTime"/></td>
+             	<td><s:date name="#cost.ITime" format="yyyy-MM-dd"/></td>
+             	<td><s:date name="#cost.OTime" format="yyyy-MM-dd"/></td>
              	<td><s:property value="#cost.YChange"/></td>
              	<td><s:property value="#cost.sumprice"/></td>
              	<td><s:property value="#cost.total"/></td>

@@ -124,4 +124,12 @@ public class MediInfo implements java.io.Serializable {
 		this.MLotno = MLotno;
 	}
 
+	@Override
+	public String toString() {
+		return "MediInfo [MNo=" + MNo + ", MName=" + MName + ", MType=" + MType
+				+ ", MCostprice=" + MCostprice + ", MPrice=" + MPrice
+				+ ", MCount=" + MCount + ", MProduce=" + MProduce
+				+ ", MValidtime=" + MValidtime + ", MLotno=" + MLotno + "]";
+	}
+
 }

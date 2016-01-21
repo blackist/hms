@@ -22,7 +22,7 @@ public class InpatientDao extends BaseDaoImpl<Inpatient> {
 				+ "where p.PNo=ip.PNo and b.BNo=ip.BNo and s.SNo=ip.PSno and di.DName=ip.DName ";
 		String param = "";
 		if(condidtions!=null && !condidtions.trim().isEmpty()){
-			param = "and p.PName like '%"+condidtions+"%' or ip.DName like '%"+condidtions+"%'";
+			param = "and ( p.PName like '%"+condidtions+"%' or ip.DName like '%"+condidtions+"%' ) ";
 		}
 		long totalrecords = (Long)session.createQuery(getCount+param).uniqueResult();
 		List<Map<String, Object>> costList = session.createQuery(findInfo+param)

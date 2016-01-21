@@ -9,6 +9,13 @@
 		<li><a href="patient/indexPatient.action" class="am-cf"><span
 				class="am-icon-check"></span>查询患者<span
 				class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+<<<<<<< HEAD
 		
 		
+=======
+		<li><a href="diag/addDiag.action"><span
+				class="am-icon-puzzle-piece"></span> 病人诊断</a></li>
+		<li><a href="diag/queryDiag.action"><span class="am-icon-th"></span>
+				诊断统计</a></li>
+>>>>>>> 5d2ef578c7cc563f5dfe78262c93e03cbea1cd66
 	</ul></li>
