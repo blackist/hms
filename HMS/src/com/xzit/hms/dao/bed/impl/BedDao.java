@@ -10,7 +10,14 @@ import com.xzit.hms.bean.inhospital.Bed;
 import com.xzit.hms.bean.page.PageBean;
 import com.xzit.hms.dao.HibernateSessionFactory;
 import com.xzit.hms.dao.impl.BaseDaoImpl;
-
+/**
+ * 
+* @ClassName: BedDao
+* @Description: TODO
+* @author 姜俊杰
+* @date 2016年1月21日 下午1:49:19
+*
+ */
 public class BedDao extends BaseDaoImpl<Bed> {
 	@SuppressWarnings("unchecked")
 	public PageBean<Map<String, Object>> findBed(Integer pagecode,Integer pagesize,String condidtions){

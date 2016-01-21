@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <script src="assets/js/amazeui.min.js"></script>
 
 <div class="am-cf am-padding">
-<div class="am-fl am-cf">
-	<strong class="am-text-primary am-text-lg">首页</strong> / <small>住院管理</small>
-	/<small>添加病人信息</small>
-</div>
+	<div class="am-fl am-cf">
+		<strong class="am-text-primary am-text-lg">首页</strong> / <small>住院管理</small>
+		/<small>添加病人信息</small>
+	</div>
 </div>
 
 <div class="am-tabs am-margin" data-am-tabs>
@@ -22,14 +22,14 @@
 				<div class="am-g am-margin-top">
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">病人姓名</div>
 					<div class="am-u-sm-8 am-u-md-4">
-						<select name="Inpatient.PNo" id="PNo" >
-                                            <option value="病人">姓名</option>
-											<s:iterator value="pb.beanlist" >
-												<option value="<s:property   value="PNo"/>">
-													<s:property value="PName" />
-												</option>
+						<select name="Inpatient.PNo" id="PNo">
+							<option value="病人">姓名</option>
+							<s:iterator value="palist">
+								<option value="<s:property   value="PNo"/>">
+									<s:property value="PName" />
+								</option>
 
-											</s:iterator>
+							</s:iterator>
 						</select>
 					</div>
 					<div class="am-hide-sm-only am-u-md-6"></div>
@@ -46,13 +46,13 @@
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">病床编号</div>
 					<div class="am-u-sm-8 am-u-md-4">
 						<select name="Inpatient.BNo" id="BNo">
-             	<option value="床号">床号</option>
-                                          <s:iterator value="list" >
-												<option value="<s:property   value="BNo"/>">
-													<s:property value="BNo" />
-												</option>
+							<option value="床号">床号</option>
+							<s:iterator value="list">
+								<option value="<s:property   value="BNo"/>">
+									<s:property value="BNo" />
+								</option>
 
-											</s:iterator>
+							</s:iterator>
 						</select>
 					</div>
 					<div class="am-hide-sm-only am-u-md-6"></div>
@@ -61,22 +61,30 @@
 				<div class="am-g am-margin-top">
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">科室</div>
 					<div class="am-u-sm-8 am-u-md-4">
-						<input type="text" class="am-input-sm" name="Inpatient.PSno"
-							id="PSno" required="required">
+
+						<select name="Inpatient.PSno" id="PSno">
+							<option value="">科室号</option>
+							<s:iterator value="slist">
+								<option value="<s:property   value="SNo"/>">
+									<s:property value="SName" />
+								</option>
+
+							</s:iterator>
+						</select>
 					</div>
 					<div class="am-hide-sm-only am-u-md-6">*必填</div>
 				</div>
-                <div class="am-g am-margin-top">
+				<div class="am-g am-margin-top">
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">医生姓名</div>
 					<div class="am-u-sm-8 am-u-md-4">
-						<select name="Inpatient.DName" id="DName" >
-           		<option value="医生">姓名</option>
-                                          <s:iterator value="doclist" >
-												<option value="<s:property   value="DName"/>">
-													<s:property value="DName" />
-												</option>
+						<select name="Inpatient.DName" id="DName">
+							<option value="医生">姓名</option>
+							<s:iterator value="doclist">
+								<option value="<s:property   value="DName"/>">
+									<s:property value="DName" />
+								</option>
 
-											</s:iterator>
+							</s:iterator>
 						</select>
 					</div>
 					<div class="am-hide-sm-only am-u-md-6"></div>
@@ -87,7 +95,7 @@
 						<textarea rows="" cols="" name="Inpatient.DAdvice" id="DAdvice"></textarea>
 					</div>
 				</div>
-				
+
 				<div class="am-g am-margin-top">
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">入院时间</div>
 					<div class="am-u-sm-8 am-u-md-4">
@@ -99,7 +107,7 @@
 					</div>
 					<div class="am-hide-sm-only am-u-md-6"></div>
 				</div>
-                <div class="am-g am-margin-top">
+				<div class="am-g am-margin-top">
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">出院时间</div>
 					<div class="am-u-sm-8 am-u-md-4">
 						<div class="am-form-group am-form-icon">
@@ -126,7 +134,7 @@
 
 <div class="am-margin">
 	<button type="button" class="am-btn am-btn-primary am-btn-xs"
-	onclick="addinpSubmit()">提交保存</button>
+		onclick="addinpSubmit()">提交保存</button>
 </div>
 <script type="text/javascript">
 	function addinpSubmit() {
