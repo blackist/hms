@@ -20,16 +20,16 @@
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">病床编号</div>
 					<div class="am-u-sm-8 am-u-md-4">
 						<input type="text" class="am-input-sm" name="bed.BNo"
-							id="BNo" required="required" value="bed.BNo">
+							id="BNo" required="required" value="<s:property value="bed.BNo" />">
 					</div>
 					<div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
 				</div>
 				<div class="am-g am-margin-top">
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">病床状态</div>
 					<div class="am-u-sm-8 am-u-md-4">
-						<select name="Bed.BSta" id="BSta">
-             	             <option value="BSta"><s:if test="bed.BSta==BSta">selected="selected"</s:if>有</option>
-							<option value="BSta"><s:if test="bed.BSta==BSta">selected="selected"</s:if>无</option>
+						<select name="bed.BSta" id="BSta">
+             	             <option value="有" <s:if test='bed.BSta=="有"'>selected="selected"</s:if>>有</option>
+							<option value="无" <s:if test='bed.BSta=="无"'>selected="selected"</s:if>>无</option>
 						</select>
 					</div>
 					<div class="am-hide-sm-only am-u-md-6">*必填</div>
@@ -38,12 +38,12 @@
                 <div class="am-g am-margin-top">
 					<div class="am-u-sm-4 am-u-md-2 am-text-right">病床类型</div>
 					<div class="am-u-sm-8 am-u-md-4">
-						<select name="Bed.BTy" id="BTy">
+						<select name="bed.BTy" id="BTy">
 						
-						    <option value="bty"><s:if test="bed.BTy==bty">selected="selected"</s:if>单人间</option>
-						    <option value="bty"><s:if test="bed.BTy==bty">selected="selected"</s:if>双人间</option>
-             	             <option value="bty"><s:if test="bed.BTy==bty">selected="selected"</s:if>四人间</option>
-                             <option value="bty"><s:if test="bed.BTy==bty">selected="selected"</s:if>六人间</option>
+						    <option value="单人间" <s:if test='bed.BTy=="单人间"'>selected="selected"</s:if>>单人间</option>
+						    <option value="双人间" <s:if test='bed.BTy=="双人间"'>selected="selected"</s:if>>双人间</option>
+             	             <option value="四人间" <s:if test='bed.BTy=="四人间"'>selected="selected"</s:if>>四人间</option>
+                             <option value="六人间" <s:if test='bed.BTy=="六人间"'>selected="selected"</s:if>>六人间</option>
 						</select>
 					</div>
 					<div class="am-hide-sm-only am-u-md-6">*必填</div>
@@ -59,9 +59,6 @@
 </div>
 
 <script type="text/javascript">
-$(function(){
-	alert("HEHE");
-});
 function updateBedSubmit() {
 	// 参数校验
 	var BNo = $("#BNo").val();

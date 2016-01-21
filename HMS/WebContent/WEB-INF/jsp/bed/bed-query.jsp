@@ -37,7 +37,7 @@
                <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
 
-                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="updatebed('<s:property value='#bed.bno'/>')"><span class="am-icon-copy"></span> 修改</button>
+                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" onclick="updatebed('<s:property value='#bed.bno'/>')" type="button"><span class="am-icon-copy" ></span> 修改</button>
                     <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="deletebed('<s:property value='#bed.bno'/>')"><span class="am-icon-trash-o"></span> 删除</button>
                   </div>
                 </div>
@@ -50,26 +50,27 @@
         <%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
       </div>
     </div>
+
     <script type="text/javascript">
 	$(function(){
-		_pageIndexBond(queryinpatient);
+		_pageIndexBond(queryBed);
 	});
 	
 	 function getaddbed(){
 		 $.post("hospital/getaddbed.action",function(data){
 				$("#admin-content").html(data);
 			});
-	}
+	 }
 	 function deletebed(id){
-			$.post("hospital/deletebed.action", {"bed.BNo":id}, function(data) {
-				$("#admin-content").html(data);
-			});
-		}
+		$.post("hospital/deletebed.action", {"bed.BNo":id}, function(data) {
+			$("#admin-content").html(data);
+		});
+	 }
 	 function updatebed(bno){
-			$.post("hospital/updatebed.action", {"bed.BNo":bno}, function(data) {
-				$("#admin-content").html(data);
-			});
-		}
+		$.post("hospital/updatebed.action", {"bed.BNo":bno}, function(data) {
+			$("#admin-content").html(data);
+		});
+	}
 	function queryBed(pagecode){
 		var condidtions = $("#condidtions").val();
 		$.post("hospital/queryBed.action", function(data){

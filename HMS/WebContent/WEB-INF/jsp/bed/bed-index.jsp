@@ -20,11 +20,6 @@
 
 	</div>
 
-	<a href="#" class="am-show-sm-only admin-menu"
-		data-am-offcanvas="{target: '#admin-offcanvas'}"> <span
-		class="am-icon-btn am-icon-th-list"></span>
-	</a>
-
 	<%@ include file="/WEB-INF/jsp/common/footer.jsp"%>
 
 	<script src="assets/js/jquery.min.js"></script>
