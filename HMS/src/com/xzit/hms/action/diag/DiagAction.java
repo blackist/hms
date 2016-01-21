@@ -33,18 +33,34 @@ public class DiagAction extends BaseAction<DiagnosticInfo> {
 	private MediInfo mediInfo = new MediInfo();
 
 	private String condidtions;
-	
+
 	private int pagecode;
-	
+
 	private PageBean<Map<String, Object>> pb;
 
 	private List<MediInfo> mediList;
 
+	/**
+	 * 
+	 * @Title: addDiag
+	 * @Description: TODO(跳转到diag-add界面)
+	 * @param @return 设定文件
+	 * @return String 返回类型
+	 * @throws
+	 */
 	@Action(value = "/addDiag", results = { @Result(name = "success", location = "/WEB-INF/jsp/diag/diag-add.jsp") })
 	public String addDiag() {
 		return SUCCESS;
 	}
 
+	/**
+	 * 
+	 * @Title: saveDiag
+	 * @Description: TODO(保存诊断内容并且刷新药品界面)
+	 * @param @return 设定文件
+	 * @return String 返回类型
+	 * @throws
+	 */
 	@Action(value = "/saveDiag", results = {
 			@Result(name = "success", location = "/WEB-INF/jsp/diag/diag-pay.jsp"),
 			@Result(name = "input", location = "/WEB-INF/jsp/diag/diag-pay.jsp") })
@@ -59,9 +75,17 @@ public class DiagAction extends BaseAction<DiagnosticInfo> {
 		return SUCCESS;
 	}
 
+	/**
+	 * 
+	 * @Title: queryDiag
+	 * @Description: TODO(查询药品表)
+	 * @param @return 设定文件
+	 * @return String 返回类型
+	 * @throws
+	 */
 	@Action(value = "/queryDiag", results = { @Result(name = "success", location = "/WEB-INF/jsp/diag/diag-query.jsp") })
 	public String queryDiag() {
-		System.out.println(diagnosticInfo.getDName());
+
 		if (pagecode == 0) {
 			pagecode = 1;
 		}
@@ -74,6 +98,37 @@ public class DiagAction extends BaseAction<DiagnosticInfo> {
 
 	}
 
+	/**
+	 * 
+	 * @Title: queryPage
+	 * @Description: TODO(分页跳转)
+	 * @param @return 设定文件
+	 * @return String 返回类型
+	 * @throws
+	 */
+	@Action(value = "/queryPage", results = { @Result(name = "success", location = "/WEB-INF/jsp/diag/diag-page.jsp") })
+	public String queryPage() {
+
+		if (pagecode == 0) {
+			pagecode = 1;
+		}
+		int pagesize = 8;
+		if (condidtions == null || condidtions.trim().isEmpty()) {
+			condidtions = "";
+		}
+		pb = diagService.findCost(pagecode, pagesize, condidtions);
+		return SUCCESS;
+
+	}
+
+	/**
+	 * 
+	 * @Title: updateDiag
+	 * @Description: TODO(对于处方的修改)
+	 * @param @return 设定文件
+	 * @return String 返回类型
+	 * @throws
+	 */
 	@Action(value = "/updateDiag", results = { @Result(name = "success", location = "/WEB-INF/jsp/diag/diag-update.jsp") })
 	public String updateDiag() {
 		System.out.println(mediInfo.getMNo());
@@ -81,14 +136,14 @@ public class DiagAction extends BaseAction<DiagnosticInfo> {
 		mediInfo = diagService.getMediById(mediInfo.getMNo());
 		return SUCCESS;
 	}
-	
+
 	@Action(value = "getaddpage", results = { @Result(name = "success", location = "/WEB-INF/jsp/inhospital/addcostlist.jsp") })
-	public String getAddPage(){
+	public String getAddPage() {
 		if (pagecode == 0) {
 			pagecode = 1;
 		}
 		int pagesize = 8;
-		pb = diagService.findCost(pagecode,pagesize);
+		pb = diagService.findCost(pagecode, pagesize);
 		return SUCCESS;
 	}
 

@@ -86,21 +86,16 @@
 									</tr>
 								</s:iterator>
 							</tbody>
-							
+
 						</table>
-						<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
-						<!-- content end -->
+					</form>
+					<%@ include file="/WEB-INF/jsp/common/pagination.jsp"%>
+					<!-- content end -->
 				</div>
-
 			</div>
-
 		</div>
-	</div>
 
-	<a href="#" class="am-show-sm-only admin-menu"
-		data-am-offcanvas="{target: '#admin-offcanvas'}"> <span
-		class="am-icon-btn am-icon-th-list"></span>
-	</a>
+	</div>
 
 	<%@ include file="/WEB-INF/jsp/common/footer.jsp"%>
 
@@ -110,23 +105,11 @@
 </body>
 <script type="text/javascript">
 	$(function() {
+
 		$("#bar-patient").attr("class",
-		"am-list am-collapse admin-sidebar-sub am-in");
-		_pageIndexBond(queryDiagCost);
+				"am-list am-collapse admin-sidebar-sub am-in");
 	});
-
-	function getAddpage() {
-		$("#content-box").load("diag/getaddpage.action");
-	}
-
-	function queryDiagCost(pagecode) {
-		var conditions = $("#conditions").val();
-		$.post("diag/queryDiag.action", {
-			"pagecode" : pagecode,
-			"conditions" : conditions
-		}, function(data) {
-			$("#content-box").html(data);
-		});
-	}
 </script>
+
 </html>
+

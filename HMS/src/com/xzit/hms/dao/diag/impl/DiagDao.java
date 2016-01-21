@@ -24,7 +24,17 @@ public class DiagDao extends BaseDaoImpl<DiagnosticInfo>{
 
 	protected Session session;
 	protected Transaction tr;
-
+/**
+ * 
+* @Title: findCost 
+* @Description: TODO(查询病历表) 
+* @param @param pagecode
+* @param @param pagesize
+* @param @param condidtions
+* @param @return    设定文件 
+* @return PageBean<Map<String,Object>>    返回类型 
+* @throws
+ */
 	@SuppressWarnings("unchecked")
 	public PageBean<Map<String, Object>> findCost(Integer pagecode,Integer pagesize,String condidtions){
 		Session session = HibernateSessionFactory.getSession();
@@ -48,7 +58,17 @@ public class DiagDao extends BaseDaoImpl<DiagnosticInfo>{
 		pb.setBeanlist(costList);
 		return pb;
 	}
-	
+	/**
+	 * 
+	* @Title: queryPay 
+	* @Description: TODO(查询药品表) 
+	* @param @param pagecode
+	* @param @param pagesize
+	* @param @param condidtions
+	* @param @return    设定文件 
+	* @return PageBean<Map<String,Object>>    返回类型 
+	* @throws
+	 */
 	@SuppressWarnings("unchecked")
 	public PageBean<Map<String, Object>> queryPay(Integer pagecode,Integer pagesize,String condidtions){
 		Session session = HibernateSessionFactory.getSession();
@@ -74,7 +94,14 @@ public class DiagDao extends BaseDaoImpl<DiagnosticInfo>{
 	}
 	
 	
-	
+	/**
+	 * 
+	* @Title: getAllMedi 
+	* @Description: TODO(查询Medic表) 
+	* @param @return    设定文件 
+	* @return List<MediInfo>    返回类型 
+	* @throws
+	 */
 	@SuppressWarnings("unchecked")
 	public List<MediInfo> getAllMedi() {
 		Session session = HibernateSessionFactory.getSession();
@@ -83,7 +110,15 @@ public class DiagDao extends BaseDaoImpl<DiagnosticInfo>{
 		mediList = (List<MediInfo>) session.createQuery(hql).list();
 		return mediList;
 	}
-	
+	/**
+	 * 
+	* @Title: getById 
+	* @Description: TODO(查询ID) 
+	* @param @param id
+	* @param @return    设定文件 
+	* @return MediInfo    返回类型 
+	* @throws
+	 */
 	public MediInfo getById(Integer id) {
 		Session session = HibernateSessionFactory.getSession();
 		session.get(MediInfo.class, id);

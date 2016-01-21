@@ -15,8 +15,7 @@
 		<%@ include file="/WEB-INF/jsp/side-bar/side-bar.jsp"%>
 
 		<!-- content start -->
-		<div class="admin-content" id="admin-content">
-
+		<div class="admin-content" id="admin-content"></div>
 
 	</div>
 
