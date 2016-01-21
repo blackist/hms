@@ -7,12 +7,8 @@
 		class="am-icon-angle-right am-fr am-margin-right"></span></a>
 	<ul class="am-list am-collapse admin-sidebar-sub" id="bar-mediInfo">
 		<li><a href="mediInfo/indexMediInfo.action" class="am-cf"><span
-				class="am-icon-check"></span>库存查询<span
-				class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+				class="am-icon-check"></span>库存查询</a></li>
 		<li><a href="mediInfo/indexMediInfo.action" class="am-cf"><span
-				class="am-icon-check"></span>药品安全<span
-				class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-		<li><a href="admin-404.html"><span class="am-icon-bug"></span>
-				404</a></li>
+				class="am-icon-check"></span>药品安全</a></li>
 	</ul></li>
-	<script src="assets/script/sidebar/bar-mediInfo.js"></script>
+<script src="assets/script/sidebar/bar-mediInfo.js"></script>
