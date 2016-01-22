@@ -7,9 +7,7 @@
 		class="am-icon-angle-right am-fr am-margin-right"></span></a>
 	<ul class="am-list am-collapse admin-sidebar-sub" id="bar-patient">
 		<li><a href="patient/indexPatient.action" class="am-cf"><span
-				class="am-icon-check"></span>查询患者<span
-				class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-
+				class="am-icon-check"></span>查询患者</a></li>
 		<li><a href="diag/addDiag.action"><span
 				class="am-icon-puzzle-piece"></span> 病人诊断</a></li>
 		<li><a href="diag/queryDiag.action"><span class="am-icon-th"></span>

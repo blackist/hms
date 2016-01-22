@@ -7,7 +7,7 @@
 	<ul class="am-list am-collapse admin-sidebar-sub" id="bar-operation">
 		<li><a href="operation/indexOper.action" class="am-cf"><span
 				class="am-icon-check"></span> 手术清单 </a></li>
-		<li><a href="admin-help.html"><span
+		<li><a href="operation/indexOper.action"><span
 				class="am-icon-puzzle-piece"></span> 手术结果</a></li>
 	</ul></li>
 	

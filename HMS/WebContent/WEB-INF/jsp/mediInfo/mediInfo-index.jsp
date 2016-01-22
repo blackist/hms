@@ -9,7 +9,7 @@
 <body>
 	<%@ include file="/WEB-INF/jsp/common/header.jsp"%>
 
-	<div class="am-cf admin-main"></div>
+	<div class="am-cf admin-main">
 
 		<!-- side bar -->
 		<%@ include file="/WEB-INF/jsp/side-bar/side-bar.jsp"%>
@@ -18,13 +18,14 @@
 		<div class="admin-content" id="admin-content"></div>
 		<!-- content end -->
 		
-		<%@ include file="/WEB-INF/jsp/common/footer.jsp"%>
+	</div>
+	
+	<%@ include file="/WEB-INF/jsp/common/footer.jsp"%>
 
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/amazeui.min.js"></script>
+	<script src="assets/js/app.js"></script>
+	<script src="assets/script/mediInfo/mediInfo-index.js"></script>
 
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/amazeui.min.js"></script>
-		<script src="assets/js/app.js"></script>
-		<script src="assets/script/mediInfo/mediInfo-index.js"></script>
-		
 </body>
 </html>
